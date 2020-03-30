@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_gravity="center">
+
+        <android.support.v4.widget.Space
+            android:id="@+id/space"
+            android:layout_height="0dp"
+            android:layout_alignParentRight="true"
+            android:visibility="gone"
+            app:layout_widthPercent="23.5%"
+            tools:visibility="visible"/>
+
+        <android.support.v4.widget.Space
+            android:id="@+id/space_left"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_widthPercent="23.5%"
+            tools:visibility="visible"/>
+
+        <View
+            android:id="@+id/normal"
+            android:layout_width="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/space"
+            android:layout_toRightOf="@id/space_left"
+            android:background="@drawable/question_card"
+            app:layout_heightPercent="39%"
+            tools:background="@color/black87"/>
+
+        <com.showreal.app.features.real.myreal.GradientImageView
+            android:id="@+id/active"
+            android:layout_width="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/space"
+            android:layout_toRightOf="@id/space_left"
+            android:alpha="0"
+            android:background="@drawable/question_card_active"
+            app:layout_heightPercent="39%"
+            tools:alpha="1"/>
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_centerInParent="true"
+            app:layout_marginLeftPercent="3%"
+            app:layout_marginRightPercent="3%"
+            android:layout_toLeftOf="@id/space"
+            android:layout_toRightOf="@id/space_left"
+            android:adjustViewBounds="true"
+            android:gravity="center"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            app:layout_heightPercent="24%"/>
+
+        <TextView
+            android:id="@+id/question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toLeftOf="@id/space"
+            android:layout_toRightOf="@id/space_left"
+            android:gravity="center"
+            android:padding="28dp"
+            android:textAppearance="@style/TextAppearance.ShowReal.Title"
+            android:textColor="@color/white87"
+            android:textSize="15sp"
+            tools:text="What's your favourite cheese?"/>
+
+        <ImageView
+            android:id="@+id/video_icon"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_alignRight="@id/active"
+            android:layout_alignTop="@id/active"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/ic_play_circle_filled_white_16dp"
+            app:layout_marginTopPercent="9%"/>
+    </android.support.percent.PercentRelativeLayout>
+
+</layout>

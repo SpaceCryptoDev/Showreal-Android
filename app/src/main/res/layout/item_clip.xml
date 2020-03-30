@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:padding="4dp">
+
+        <com.github.siyamed.shapeimageview.CircularImageView
+            android:id="@+id/thumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="6dp"
+            app:siBorderWidth="0dp"
+            tools:src="@mipmap/ic_launcher"/>
+
+        <ImageView
+            android:id="@+id/bottom"
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            android:paddingBottom="8dp"
+            android:src="@drawable/ic_clip"
+            android:scaleType="fitCenter"
+            android:paddingTop="2dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/black87">
+
+        </ImageView>
+
+
+        <FrameLayout
+            android:id="@+id/overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white54"
+            android:visibility="gone"/>
+
+        <com.showreal.app.CircleOverlayView
+            android:id="@+id/circle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="6dp"
+            app:overlay_backgroundColor="@color/status_bar_light"
+            />
+
+    </android.support.percent.PercentRelativeLayout>
+
+</layout>

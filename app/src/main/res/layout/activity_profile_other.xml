@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="viewModel"
+            type="com.showreal.app.features.profile.other.OtherProfileViewModel"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/status_bar_light">
+
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/app_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <include
+                    android:id="@+id/toolbar_layout"
+                    layout="@layout/toolbar_up"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </android.support.design.widget.AppBarLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include
+                        android:id="@+id/real"
+                        layout="@layout/item_real_profile"
+                        app:profileViewModel="@{viewModel}"
+                        app:viewModel="@{viewModel.reviewViewModel}"/>
+
+                    <FrameLayout
+                        android:id="@+id/friends_fragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="@{viewModel == null ? View.GONE : viewModel.friendsVisibility}"/>
+
+
+                    <android.support.percent.PercentRelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:background="@android:color/white"
+                        android:visibility="@{viewModel == null ? View.GONE : viewModel.instagramVisibility}">
+
+                        <FrameLayout
+                            android:id="@+id/header"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_margin="16dp"
+                                android:background="@color/colorAccent"/>
+
+                            <TextView
+                                android:id="@+id/instagram_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@android:color/white"
+                                android:padding="16dp"
+                                android:text="@{viewModel.instagramTitle}"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:textColor="@color/colorAccent"
+                                tools:text="@string/profile_instagram"/>
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:id="@+id/instagram_fragment"
+                            android:layout_below="@id/header"
+                            app:layout_aspectRatio="150%"
+                            app:layout_widthPercent="100%"/>
+
+                    </android.support.percent.PercentRelativeLayout>
+
+
+                    <Button
+                        android:id="@+id/button_report"
+                        style="@style/Widget.ShowReal.ButtonBar.Button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:onClick="@{viewModel::onReport}"
+                        android:text="@string/button_report"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/purple_dark"
+                        app:underline="@{true}"/>
+
+                </LinearLayout>
+            </ScrollView>
+
+
+        </android.support.design.widget.CoordinatorLayout>
+
+        <include
+            android:id="@+id/loading"
+            layout="@layout/loading_view"
+            android:visibility="gone"/>
+    </FrameLayout>
+</layout>

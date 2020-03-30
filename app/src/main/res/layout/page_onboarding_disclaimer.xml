@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="-40dp"
+            android:layout_marginRight="-40dp"
+            android:src="@drawable/intro_disclaimer"
+            app:layout_heightPercent="45%"/>
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/TextAppearance.ShowReal.Headline"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_horizontal"
+            android:text="@string/onboarding_title_disclaimer"
+            android:textColor="@color/colorPrimaryDark"
+            app:font="@{@string/FontHeadline}"
+            app:layout_marginTopPercent="30%"
+            app:layout_widthPercent="80%"/>
+
+        <TextView
+            android:id="@+id/text"
+            style="@style/TextAppearance.ShowReal.Body1"
+            android:layout_below="@id/title"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:lineSpacingMultiplier="1.4"
+            android:text="@string/onboarding_disclaimer"
+            app:font="@{@string/FontBody1}"
+            app:layout_heightPercent="40%"
+            app:layout_widthPercent="80%"/>
+
+    </android.support.percent.PercentRelativeLayout>
+
+</layout>

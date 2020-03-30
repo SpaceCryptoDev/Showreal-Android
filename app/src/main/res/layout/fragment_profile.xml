@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="viewModel"
+            type="com.showreal.app.features.profile.ProfileViewModel"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/grey_light">
+
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/app_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <include
+                    android:id="@+id/toolbar_layout"
+                    layout="@layout/toolbar_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </android.support.design.widget.AppBarLayout>
+
+            <ScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="172dp">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="2dp"
+                        android:background="@android:color/white"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:paddingBottom="16dp">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <RelativeLayout
+                                android:id="@+id/profile_details"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="16dp"
+                                android:layout_marginTop="16dp">
+
+                                <com.github.siyamed.shapeimageview.HexagonImageView
+                                    android:id="@+id/photo"
+                                    android:layout_width="42dp"
+                                    android:layout_height="42dp"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="8dp"
+                                    android:adjustViewBounds="false"
+                                    app:imageUrl="@{viewModel.image}"
+                                    app:siBorderWidth="0dp"/>
+
+                                <TextView
+                                    android:id="@+id/name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toRightOf="@id/photo"
+                                    android:text="@{viewModel.name}"
+                                    android:textAppearance="@style/TextAppearance.ShowReal.Body2"
+                                    android:textSize="16sp"
+                                    app:font="@{@string/FontBody2}"
+                                    tools:text="Charlotte, 26"/>
+
+                            </RelativeLayout>
+
+                            <android.support.design.widget.FloatingActionButton
+                                android:id="@+id/button_edit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_margin="8dp"
+                                android:onClick="@{viewModel::onEdit}"
+                                android:src="@drawable/ic_edit"
+                                android:stateListAnimator="@animator/button_elevation"
+                                app:backgroundTint="@color/red"
+                                app:fabSize="mini"/>
+                        </FrameLayout>
+
+
+                        <ViewStub
+                            android:id="@+id/details_stub"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:viewModel="@{viewModel}"/>
+
+                    </LinearLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:background="@android:color/white">
+
+                        <TextView
+                            android:id="@+id/showreal_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginTop="16dp"
+                            android:text="@string/title_my_real"
+                            android:visibility="gone"
+                            android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                            android:textColor="@color/black87"
+                            app:font="@{@string/FontHeadline}"/>
+
+                        <Button
+                            android:id="@+id/button_edit_real"
+                            style="?attr/borderlessButtonStyle"
+                            android:layout_width="230dp"
+                            android:layout_height="70dp"
+                            android:layout_above="@+id/circles"
+                            android:layout_centerHorizontal="true"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginBottom="4dp"
+                            android:background="@drawable/btn_preview"
+                            android:minHeight="36dp"
+                            android:onClick="@{viewModel::onEditReal}"
+                            android:paddingBottom="4dp"
+                            android:paddingTop="4dp"
+                            android:paddingRight="30dp"
+                            android:text="@string/button_edit_showreal"
+                            android:textSize="15dp"
+                            android:textAllCaps="false"
+                            android:textAppearance="@style/TextAppearance.ShowReal.Body2"
+                            android:textColor="@color/white"
+                            app:font="@{@string/FontBody2}"
+                            app:underline="@{false}" />
+
+                        <include
+                            android:id="@+id/reel_view"
+                            layout="@layout/item_real_my_profile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/button_edit_real"/>
+
+
+                        <android.support.design.widget.FloatingActionButton
+                            android:id="@+id/button_edit_real_old"
+                            android:layout_width="wrap_content"
+                            android:visibility="gone"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginTop="16dp"
+                            android:onClick="@{viewModel::onEditReal}"
+                            android:src="@drawable/ic_edit"
+                            android:stateListAnimator="@animator/button_elevation"
+                            app:backgroundTint="@color/red"
+                            app:fabSize="mini"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/reel_view"
+                            android:layout_marginTop="8dp"
+                            android:background="@color/grey_light"
+                            android:paddingBottom="6dp"
+                            android:paddingTop="8dp">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/view_count"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="2dp"
+                                    android:gravity="center"
+                                    android:text="@{viewModel.viewCount}"
+                                    android:textAppearance="@style/TextAppearance.ShowReal.Caption"
+                                    android:textColor="@color/purple_dark"
+                                    app:font="@{@string/FontCaption}"
+                                    tools:text="0"/>
+
+                                <TextView
+                                    android:id="@+id/views_label"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:gravity="bottom"
+                                    android:text="@string/profile_views_label"
+                                    android:textAppearance="@style/TextAppearance.ShowReal.Caption"
+                                    android:textColor="@color/black54"
+                                    app:font="@{@string/FontCaption}"/>
+                            </LinearLayout>
+
+                            <FrameLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
+                                <LinearLayout
+                                    android:id="@+id/help_feedback"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/chances_count"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="2dp"
+                                        android:gravity="center"
+                                        android:text="@{viewModel.chancesCount}"
+                                        android:textAppearance="@style/TextAppearance.ShowReal.Caption"
+                                        android:textColor="@color/purple_dark"
+                                        app:font="@{@string/FontCaption}"
+                                        tools:text="0"/>
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="-6dp">
+
+                                        <TextView
+                                            android:id="@+id/chances_label_one"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="bottom"
+                                            android:paddingTop="8dp"
+                                            android:text="@{viewModel.chancesLabelText}"
+                                            android:textAppearance="@style/TextAppearance.ShowReal.Caption"
+                                            android:textColor="@color/black54"
+                                            app:font="@{@string/FontCaption}"
+                                            tools:text="2nd "
+                                            />
+
+                                        <TextView
+                                            android:id="@+id/chances_label_two"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="bottom"
+                                            android:text="@string/chances"
+                                            android:textAppearance="@style/TextAppearance.ShowReal.Caption"
+                                            android:textColor="@color/black54"
+                                            app:font="@{@string/FontCaption}"
+                                            />
+
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+                            </FrameLayout>
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:background="@android:color/white"
+                        android:visibility="@{viewModel.instagramButtonVisibility}">
+
+                        <FrameLayout
+                            android:id="@+id/button_instagram"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:layout_marginLeft="24dp"
+                            android:layout_marginRight="24dp"
+                            android:layout_marginTop="16dp"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:minHeight="48dp"
+                            android:onClick="@{viewModel::onInstagram}"
+                            >
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/colorAccent"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginBottom="8dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:layout_marginTop="8dp"
+                                android:drawableLeft="@drawable/ic_add_red_24dp"
+                                android:drawablePadding="8dp"
+                                android:gravity="center_vertical"
+                                android:text="@string/button_instagram"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:textColor="@color/colorAccent"
+                                app:font="@{@string/FontSubHeadline}"/>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_gravity="bottom"
+                                android:background="@color/colorAccent"/>
+
+                        </FrameLayout>
+                    </FrameLayout>
+
+
+                    <android.support.percent.PercentRelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:background="@android:color/white"
+                        android:visibility="@{viewModel == null ? View.GONE : viewModel.instagramVisibility}">
+
+                        <FrameLayout
+                            android:id="@+id/header"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_margin="16dp"
+                                android:background="@color/colorAccent"/>
+
+                            <TextView
+                                android:id="@+id/instagram_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@android:color/white"
+                                android:padding="16dp"
+                                android:text="@string/profile_instagram"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:textColor="@color/colorAccent"
+                                app:font="@{@string/FontSubHeadline}"/>
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:id="@+id/instagram_fragment"
+                            android:layout_below="@id/header"
+                            app:layout_aspectRatio="150%"
+                            app:layout_widthPercent="100%"/>
+
+                        <Button
+                            android:id="@+id/button_disconnect"
+                            style="@style/Widget.ShowReal.ButtonBar.Button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/instagram_fragment"
+                            android:layout_centerHorizontal="true"
+                            android:onClick="@{viewModel::onDisconnect}"
+                            android:text="@string/button_disconnect_instagram"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/purple_dark"
+                            app:font="@{@string/FontBody1}"
+                            app:underline="@{true}"/>
+
+                    </android.support.percent.PercentRelativeLayout>
+
+                </LinearLayout>
+            </ScrollView>
+
+
+        </android.support.design.widget.CoordinatorLayout>
+
+        <include
+            android:id="@+id/loading"
+            layout="@layout/loading_view"
+            android:visibility="gone"/>
+    </FrameLayout>
+</layout>

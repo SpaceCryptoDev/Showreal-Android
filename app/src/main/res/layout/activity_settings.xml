@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:background="@color/status_bar_light"
+                  android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar_layout"
+            layout="@layout/toolbar_up"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <FrameLayout
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <include
+                android:id="@+id/loading_layout"
+                layout="@layout/loading_view"
+                android:visibility="gone"/>
+
+        </FrameLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <fragment
+            android:id="@+id/fragment"
+            class="com.showreal.app.features.onboarding.explore.ExploreReviewsFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_real_review"/>
+
+
+        <ImageView
+            android:id="@+id/button_explore_add"
+            android:layout_width="@dimen/explore_fab_size"
+            android:layout_height="@dimen/explore_fab_size"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="16dp"
+            android:background="@drawable/explore_fab_overlay"
+            android:padding="16dp"
+            android:foreground="@drawable/fab_selector"
+            android:tint="@color/white87"
+            android:tintMode="src_in"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_explore_add"
+            android:stateListAnimator="@animator/button_elevation"/>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</layout>

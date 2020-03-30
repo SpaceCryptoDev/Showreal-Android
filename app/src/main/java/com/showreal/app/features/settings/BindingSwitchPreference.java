@@ -1,0 +1,62 @@
+package com.showreal.app.features.settings;
+
+import android.annotation.TargetApi;
+import android.content.Context;
+import android.databinding.DataBindingUtil;
+import android.os.Build;
+import android.preference.Preference;
+import android.preference.SwitchPreference;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.showreal.app.R;
+import com.showreal.app.databinding.PreferenceBinding;
+
+import uk.co.thedistance.thedistancetheming.fonts.Font;
+
+public class BindingSwitchPreference extends SwitchPreference {
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public BindingSwitchPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+    }
+
+    public BindingSwitchPreference(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+    }
+
+    public BindingSwitchPreference(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    public BindingSwitchPreference(Context context) {
+        super(context);
+    }
+
+    @Override
+    protected View onCreateView(ViewGroup parent) {
+
+
+        final LayoutInflater layoutInflater =
+                (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        final PreferenceBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.preference, parent, false);
+
+        final ViewGroup widgetFrame = binding.widgetFrame;
+
+        Font.setFont(binding.getRoot().findViewById(android.R.id.title), getContext().getString(R.string.FontTitle));
+        Font.setFont(binding.getRoot().findViewById(android.R.id.summary), getContext().getString(R.string.FontBody1));
+
+        if (widgetFrame != null) {
+            if (getWidgetLayoutResource() != 0) {
+                layoutInflater.inflate(getWidgetLayoutResource(), widgetFrame);
+            } else {
+                widgetFrame.setVisibility(View.GONE);
+            }
+        }
+
+        return binding.getRoot();
+    }
+}

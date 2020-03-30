@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="viewModel"
+            type="com.showreal.app.features.conversations.unmatch.UnmatchViewModel"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/app_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <include
+                    android:id="@+id/toolbar_layout"
+                    layout="@layout/toolbar_up"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </android.support.design.widget.AppBarLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                >
+
+                <android.support.percent.PercentRelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/message"
+                        android:layout_alignTop="@+id/photo"
+                        android:layout_marginTop="42dp"
+                        android:background="@color/grey_light"/>
+
+                    <com.github.siyamed.shapeimageview.HexagonImageView
+                        android:id="@+id/photo"
+                        android:layout_width="84dp"
+                        android:layout_height="84dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="12dp"
+                        android:adjustViewBounds="false"
+                        app:imageUrl="@{viewModel.image}"
+                        app:siBorderWidth="0dp"/>
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/photo"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="16dp"
+                        android:text="@{viewModel.name}"
+                        android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                        android:textSize="22sp"
+                        app:font="@{@string/FontSubHeadline}"
+                        tools:text="Frances"/>
+
+                    <TextView
+                        android:id="@+id/message"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/name"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="24dp"
+                        android:gravity="center"
+                        android:paddingBottom="24dp"
+                        android:text="@{viewModel.message}"
+                        android:textAppearance="@style/TextAppearance.ShowReal.Title"
+                        android:textSize="18sp"
+                        app:font="@{@string/FontTitle}"
+                        app:layout_widthPercent="68%"
+                        tools:text="@string/unmatch_message"/>
+
+                    <TextView
+                        android:id="@+id/question"
+                        app:layout_widthPercent="55%"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/message"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="24dp"
+                        android:layout_marginTop="24dp"
+                        android:text="@{viewModel.question}"
+                        android:textAppearance="@style/TextAppearance.ShowReal.Body1"
+                        android:textSize="16sp"
+                        tools:text="@string/unmatch_question"/>
+
+                    <android.support.v4.widget.Space
+                        android:id="@+id/space"
+                        android:layout_below="@+id/question"
+                        android:layout_centerHorizontal="true"
+                        app:layout_heightPercent="0%"
+                        app:layout_widthPercent="5%"/>
+
+                    <Button
+                        android:id="@+id/button_delete"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/question"
+                        android:layout_toLeftOf="@id/space"
+                        android:background="@drawable/button_unmatch"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:gravity="center"
+                        android:onClick="@{viewModel::onUnmatch}"
+                        android:paddingLeft="38dp"
+                        android:paddingRight="16dp"
+                        android:text="@string/button_unmatch"
+                        android:textAppearance="@style/TextAppearance.ShowReal.Button"
+                        android:textColor="@color/red"
+                        app:font="@{@string/FontButton}"/>
+
+                    <Button
+                        android:id="@+id/button_cancel"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/question"
+                        android:layout_toRightOf="@id/space"
+                        android:background="@drawable/button_cancel"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:gravity="center"
+                        android:onClick="@{viewModel::onCancel}"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:text="@string/button_cancel"
+                        android:textAppearance="@style/TextAppearance.ShowReal.Button"
+                        android:textColor="@color/red"
+                        app:font="@{@string/FontButton}"/>
+
+                </android.support.percent.PercentRelativeLayout>
+
+            </ScrollView>
+
+
+        </android.support.design.widget.CoordinatorLayout>
+
+        <include
+            android:id="@+id/loading"
+            layout="@layout/loading_view"
+            android:visibility="gone"/>
+    </FrameLayout>
+</layout>

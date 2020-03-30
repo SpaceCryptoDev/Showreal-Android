@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.showreal.app.features.settings.delete.DeleteViewModel"/>
+    </data>
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/toolbar_layout"
+            layout="@layout/toolbar_up"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar_layout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/delete_text_one"
+            android:textSize="16sp"
+            android:textAppearance="@style/TextAppearance.ShowReal.Body1"
+            app:font="@{@string/FontBody1}"
+            app:layout_widthPercent="70%"
+            />
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="32dp"
+            android:textSize="14sp"
+            android:text="@{viewModel.deleteText}"
+            android:textAppearance="@style/TextAppearance.ShowReal.Caption"
+            app:font="@{@string/FontBody1}"
+            app:layout_widthPercent="70%"
+            tools:text="@string/delete_text_two"
+            />
+
+        <android.support.percent.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/text2"
+            android:background="@color/grey_light"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/text_confirm"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="32dp"
+                android:gravity="center"
+                android:text="@string/delete_text_confirm"
+                android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                app:font="@{@string/FontSubHeadline}"
+                app:layout_widthPercent="80%"
+                />
+
+            <android.support.v4.widget.Space
+                android:id="@+id/space"
+                android:layout_below="@+id/text_confirm"
+                android:layout_centerHorizontal="true"
+                app:layout_heightPercent="0%"
+                app:layout_widthPercent="5%"/>
+
+            <Button
+                android:id="@+id/button_delete"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_confirm"
+                android:layout_toLeftOf="@id/space"
+                android:background="@drawable/button_delete"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:onClick="@{viewModel::onDelete}"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="@string/button_delete"
+                android:textAppearance="@style/TextAppearance.ShowReal.Button"
+                android:textColor="@color/red"
+                app:font="@{@string/FontButton}"/>
+
+            <Button
+                android:id="@+id/button_cancel"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_confirm"
+                android:layout_toRightOf="@id/space"
+                android:background="@drawable/button_cancel"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:onClick="@{viewModel::onCancel}"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="@string/button_cancel"
+                android:textAppearance="@style/TextAppearance.ShowReal.Button"
+                android:textColor="@color/red"
+                app:font="@{@string/FontButton}"/>
+
+        </android.support.percent.PercentRelativeLayout>
+
+
+        <include
+            android:id="@+id/loading_layout"
+            layout="@layout/loading_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+
+    </android.support.percent.PercentRelativeLayout>
+
+</layout>

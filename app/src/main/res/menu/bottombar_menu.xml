@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/item_review"
+        android:icon="@drawable/tab_reviews"
+        android:title=""/>
+    <item
+        android:id="@+id/item_potential"
+        android:icon="@drawable/tab_potential"
+        android:title=""/>
+    <item
+        android:id="@+id/item_messages"
+        android:icon="@drawable/tab_messages"
+        android:title=""/>
+    <item
+        android:id="@+id/item_notifications"
+        android:icon="@drawable/tab_notifications"
+        android:title=""/>
+    <item
+        android:id="@+id/item_profile"
+        android:icon="@drawable/tab_profile"
+        android:title=""/>
+
+</menu>

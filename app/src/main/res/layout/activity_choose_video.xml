@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black">
+
+        <com.showreal.app.cookiecutter.CookieCutterImageView
+            android:id="@+id/crop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_centerInParent="true"
+            android:src="@drawable/clip_adjust"
+            app:layout_aspectRatio="100%"
+            app:layout_widthPercent="60%"/>
+
+        <com.showreal.app.SRToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/title"
+            android:layout_alignTop="@+id/title"
+            android:background="@android:color/transparent"
+            android:paddingLeft="0dp"
+            android:theme="@style/Widget.ShowReal.Toolbar"/>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="72dp"
+            android:gravity="center_vertical"
+            android:minHeight="?attr/actionBarSize"
+            android:textAppearance="@style/TextAppearance.ShowReal.Widget.Toolbar.Title"
+            app:font="@{@string/FontHeadline}"
+            tools:text="New Clip"/>
+
+        <ImageButton
+            android:id="@+id/button_edit"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="48dp"
+            android:layout_marginTop="8dp"
+            android:layout_alignParentBottom="true"
+            android:background="@android:color/transparent"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:padding="12dp"
+            android:src="@drawable/button_edit_circle"
+            android:visibility="visible"/>
+
+        <include
+            android:id="@+id/loading_layout"
+            layout="@layout/loading_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+
+
+    </android.support.percent.PercentRelativeLayout>
+
+</layout>

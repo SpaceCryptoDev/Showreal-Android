@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="question_duration">1000</integer>
+    <integer name="question_fade_duration">500</integer>
+    <integer name="question_fade_delay">500</integer>
+</resources>

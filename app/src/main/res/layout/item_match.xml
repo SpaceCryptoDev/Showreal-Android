@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.showreal.app.features.conversations.matches.MatchViewModel"/>
+    </data>
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:onClick="@{viewModel::onClick}"
+        android:padding="8dp"
+        tools:layout_width="100dp">
+
+        <com.github.siyamed.shapeimageview.HexagonImageView
+            android:id="@+id/photo"
+            android:adjustViewBounds="false"
+            app:imageUrl="@{viewModel.image}"
+            app:layout_aspectRatio="100%"
+            app:layout_widthPercent="100%"
+            app:siBorderWidth="0dp"/>
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/TextAppearance.ShowReal.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/photo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="4dp"
+            android:text="@{viewModel.name}"
+            android:textColor="@color/black54"
+            app:font="@{@string/FontBody1}"
+            tools:text="Ben"/>
+
+        <ImageView
+            android:id="@+id/bubble"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:src="@{viewModel.bubbleImage}"
+            tools:src="@drawable/ic_bubble_filled"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/bubble"
+            android:layout_alignLeft="@id/bubble"
+            android:layout_alignRight="@id/bubble"
+            android:layout_alignTop="@id/bubble"
+            android:gravity="center"
+            android:text="@{viewModel.unreadCount}"
+            android:textAppearance="@style/TextAppearance.ShowReal.Caption"
+            android:textColor="@android:color/white"
+            android:textSize="12dp"
+            app:font="@{@string/FontCaption}"
+            tools:text="1"/>
+
+    </android.support.percent.PercentRelativeLayout>
+
+</layout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="report_titles">
+        <item>Logging In</item>
+        <item>My ShowReal</item>
+        <item>Messaging</item>
+        <item>User Matching</item>
+        <item>User Behaviour</item>
+        <item>Other</item>
+        <item>Feedback</item>
+    </string-array>
+
+    <string-array name="report_user_titles">
+        <item>General misuse of app</item>
+        <item>Offensive message</item>
+        <item>Offensive image</item>
+        <item>Other reason</item>
+    </string-array>
+</resources>

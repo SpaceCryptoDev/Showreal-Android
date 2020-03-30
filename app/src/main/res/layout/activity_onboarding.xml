@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.showreal.app.features.onboarding.tutorial.OnboardingViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/buttons" />
+
+        <com.viewpagerindicator.CirclePageIndicator
+            android:id="@+id/circles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/buttons"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:layout_marginBottom="10dp"
+            app:fillColor="@color/purple_light"
+            app:pageColor="@color/circle_unselected"
+            app:radius="4dp"
+            app:strokeColor="@android:color/transparent"
+            app:strokeWidth="0dp" />
+
+        <Button
+            android:id="@+id/button_explore"
+            style="?attr/borderlessButtonStyle"
+            android:layout_width="230dp"
+            android:layout_height="70dp"
+            android:layout_above="@+id/circles"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/btn_preview"
+            android:minHeight="36dp"
+            android:onClick="@{viewModel::onExplore}"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            android:text="@string/button_explore"
+            android:textSize="15dp"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.ShowReal.Body2"
+            android:textColor="@color/white"
+            app:font="@{@string/FontBody2}"
+            app:underline="@{false}" />
+
+        <LinearLayout
+            android:id="@+id/buttons"
+            style="@style/Widget.ShowReal.ButtonBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                android:id="@+id/button_sign_up"
+                style="@style/Widget.ShowReal.ButtonBar.Button"
+                android:onClick="@{viewModel::onSignUp}"
+                android:text="@string/button_sign_up"
+                app:font="@{@string/FontButton}" />
+
+            <include layout="@layout/button_separator" />
+
+            <Button
+                android:id="@+id/button_log_in"
+                style="@style/Widget.ShowReal.ButtonBar.Button"
+                android:onClick="@{viewModel::onLogin}"
+                android:text="@string/button_log_in"
+                app:font="@{@string/FontButton}" />
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/count_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
+
+</layout>

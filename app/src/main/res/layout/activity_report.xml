@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.showreal.app.features.settings.ReportViewModel"/>
+    </data>
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/layout"
+        android:clickable="true">
+
+        <include
+            android:id="@+id/toolbar_layout"
+            layout="@layout/toolbar_up"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:id="@+id/spinner_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar_layout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="4dp"
+            android:text="@string/field_report_title"
+            android:textAppearance="@style/TextAppearance.ShowReal.Body1"
+            android:textColor="@color/red"
+            android:textSize="12sp"
+            app:font="@{@string/FontBody1}"
+            app:layout_marginTopPercent="10%"
+            app:layout_widthPercent="80%"/>
+
+        <FrameLayout
+            android:id="@+id/spinner_frame"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/spinner_hint"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/outline_red"
+            app:layout_widthPercent="80%">
+
+            <Spinner
+                android:id="@+id/title_spinner"
+                style="@style/Widget.ShowReal.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:adapter="@{viewModel.spinnerAdapter}"
+                app:onItemSelectedListener="@{viewModel.selectedListener}"
+                tools:listitem="@layout/spinner_item"/>
+
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:id="@+id/text_frame"
+            android:layout_width="match_parent"
+            android:layout_below="@id/spinner_frame"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"
+            android:background="@color/status_bar_light"
+            android:paddingBottom="4dp"
+            app:layout_heightPercent="50%"
+            app:layout_widthPercent="80%">
+
+            <EditText
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="top"
+                android:hint="@string/field_report"
+                android:inputType="textCapSentences|textMultiLine"
+                android:onTextChanged="@{viewModel::onMessageChanged}"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                app:font="@{@string/FontSubHeadline}"/>
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/button_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_frame"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/button_send"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:onClick="@{viewModel::onSend}"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/button_send"
+            android:textAppearance="@style/TextAppearance.ShowReal.Button"
+            android:textColor="@color/red"
+            app:font="@{@string/FontButton}"
+            app:layout_widthPercent="50%"/>
+
+        <include
+            android:id="@+id/loading_layout"
+            layout="@layout/loading_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+
+    </android.support.percent.PercentRelativeLayout>
+
+</layout>

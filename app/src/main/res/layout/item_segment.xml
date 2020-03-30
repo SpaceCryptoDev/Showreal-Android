@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <FrameLayout
+        android:id="@+id/segment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/thumbnail"
+            android:layout_width="68dp"
+            android:layout_height="68dp"/>
+
+        <View
+            android:id="@+id/overlay"
+            android:layout_width="68dp"
+            android:layout_height="68dp"
+            android:foreground="@drawable/selectable_video_segment"/>
+    </FrameLayout>
+</layout>

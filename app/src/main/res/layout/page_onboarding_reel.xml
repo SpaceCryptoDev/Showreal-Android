@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        >
+
+        <ImageView
+            android:id="@+id/reel_image"
+            android:src="@drawable/onboarding_reel"
+            app:layout_aspectRatio="67.6%"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:layout_height="match_parent"/>
+
+        <ImageView
+            android:id="@+id/image"
+            tools:src="@drawable/onboarding_reel_1"
+            app:layout_heightPercent="50%"
+            android:layout_width="wrap_content"
+            android:layout_alignLeft="@id/reel_image"
+            android:layout_alignRight="@id/reel_image"
+            android:layout_centerInParent="true"
+            />
+
+    </android.support.percent.PercentRelativeLayout>
+
+</layout>

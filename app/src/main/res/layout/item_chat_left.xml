@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.showreal.app.features.conversations.MessageViewModel"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <org.apmem.tools.layouts.FlowLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/chat_left"
+            android:gravity="fill"
+            android:paddingBottom="12dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="8dp"
+            android:paddingTop="12dp">
+
+            <TextView
+                android:id="@+id/message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.text}"
+                android:textAppearance="@style/TextAppearance.ShowReal.Body2"
+                android:textColor="@color/black87"
+                app:font="@{@string/FontBody2}"
+                tools:text="wjfpefpwefpowekfpwe we ofopek wefowef jewf owejf we foiwej fewf e ewjf w"/>
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:gravity="right"
+                android:text="@{viewModel.time}"
+                android:textAppearance="@style/TextAppearance.ShowReal.Body1"
+                android:textColor="@color/black54"
+                android:textSize="13sp"
+                app:font="@{@string/FontBody1}"
+                tools:text="10:00"/>
+
+        </org.apmem.tools.layouts.FlowLayout>
+    </FrameLayout>
+</layout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="surface" type="id"/>
+    <item name="photo_position" type="id"/>
+    <item name="position" type="id"/>
+    <item name="item" type="id"/>
+    <item name="glide_tag" type="id"/>
+    <item name="drag_type" type="id"/>
+    <item name="toast_view" type="id"/>
+</resources>

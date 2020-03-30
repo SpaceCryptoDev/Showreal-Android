@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.showreal.app.features.onboarding.signup.LoginViewModel"/>
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                android:paddingBottom="16dp"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="-24dp"
+                    android:layout_marginRight="-24dp"
+                    android:background="@color/status_bar_light"
+                    android:gravity="center"
+                    android:padding="16dp"
+                    android:text="@string/title_login"
+                    android:textAppearance="@style/TextAppearance.ShowReal.Title"
+                    app:font="@{@string/FontHeadline}"/>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/email_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    app:font="@{@string/FontBody1}">
+
+                    <EditText
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/field_email"
+                        android:inputType="textEmailAddress"
+                        android:onTextChanged="@{viewModel::onEmailChanged}"
+                        android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                        app:font="@{@string/FontBody1}"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/password_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:font="@{@string/FontBody1}"
+                    app:passwordToggleEnabled="true"
+                    app:passwordToggleTint="@color/red">
+
+                    <EditText
+                        android:id="@+id/password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/field_password"
+                        android:inputType="textPassword"
+                        android:onTextChanged="@{viewModel::onPasswordChanged}"
+                        android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                        app:font="@{@string/FontBody1}"
+                        tools:text="wfgkjrng"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <Button
+                    android:id="@+id/button_forgot"
+                    style="?attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:minHeight="36dp"
+                    android:onClick="@{viewModel::onForgot}"
+                    android:paddingBottom="4dp"
+                    android:paddingTop="4dp"
+                    android:text="@string/button_forgot"
+                    android:textAllCaps="false"
+                    android:textAppearance="@style/TextAppearance.ShowReal.Body2"
+                    android:textColor="@color/colorPrimaryDark"
+                    app:font="@{@string/FontBody2}"
+                    app:underline="@{true}"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:clipToPadding="false"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp">
+
+                    <Button
+                        android:id="@+id/button_login"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_sign_up"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:onClick="@{viewModel::onLogin}"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:text="@string/button_login"
+                        android:textAppearance="@style/TextAppearance.ShowReal.Button"
+                        android:textColor="@color/red"
+                        app:font="@{@string/FontButton}"/>
+
+                    <TextView
+                        android:id="@+id/or"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="12dp"
+                        android:text="or"
+                        android:textAppearance="@style/TextAppearance.ShowReal.Body1"/>
+
+                    <Button
+                        android:id="@+id/button_facebook"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_outline_facebook"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:onClick="@{viewModel::onFacebook}"
+                        android:text="@string/button_facebook"
+                        android:textAppearance="@style/TextAppearance.ShowReal.Button"
+                        android:textColor="@color/colorPrimary"
+                        app:font="@{@string/FontButton}"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

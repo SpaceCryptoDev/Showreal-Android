@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SegmentPreference">
+        <attr name="first" format="string"/>
+        <attr name="second" format="string"/>
+    </declare-styleable>
+
+    <attr name="segmentPreferenceStyle" format="reference" />
+
+    <declare-styleable name="CircleOverlayView">
+        <attr name="overlay_backgroundColor" format="color"/>
+    </declare-styleable>
+</resources>

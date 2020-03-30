@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="url_terms">http://www.showreal.com/terms-of-registration.php</string>
+    <string name="url_privacy">http://www.showreal.com/privacy-policy.php</string>
+    <string name="url_safety">http://www.showreal.com/safety-tip.php</string>
+</resources>

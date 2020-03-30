@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.ShowReal" parent="AppTheme">
+        <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
+        <item name="android:datePickerDialogTheme">@style/Theme.ShowReal.PickerDialog</item>
+
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowActivityTransitions">true</item>
+
+        <item name="android:fragmentSharedElementEnterTransition">@transition/shared_element_transition</item>
+        <item name="android:fragmentSharedElementReturnTransition">@transition/shared_element_transition</item>
+        <item name="android:windowSharedElementEnterTransition">@transition/shared_element_transition</item>
+        <item name="android:windowSharedElementReturnTransition">@transition/shared_element_transition</item>
+        <item name="android:windowSharedElementExitTransition">@transition/shared_element_transition</item>
+        <item name="android:windowSharedElementReenterTransition">@transition/shared_element_transition</item>
+    </style>
+
+    <style name="Theme.ShowReal.PickerDialog" parent="Theme.ShowReal.Dialog.Alert">
+        <item name="android:datePickerStyle">@style/Widget.ShowReal.DatePicker</item>
+    </style>
+
+    <style name="Widget.ShowReal.DatePicker" parent="@android:style/Widget.Material.Light.DatePicker">
+        <item name="android:colorAccent">@color/colorAccent</item>
+    </style>
+</resources>

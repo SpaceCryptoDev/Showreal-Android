@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.showreal.app.features.conversations.MessageViewModel"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.percent.PercentRelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginLeft="48dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/chat_right"
+            android:gravity="fill"
+            android:paddingBottom="8dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp">
+
+            <ViewStub
+                android:id="@+id/stub"
+                android:layout_height="wrap_content"
+                android:inflatedId="@+id/media"
+                android:layout="@layout/media_content"
+                app:layout_widthPercent="50%"/>
+
+        </android.support.percent.PercentRelativeLayout>
+    </FrameLayout>
+</layout>

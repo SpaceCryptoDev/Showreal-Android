@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:showIn="@layout/page_onboarding_two">
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:id="@+id/button_keep"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/selector_onboarding_circle_red"
+            app:layout_aspectRatio="100%"
+            app:layout_marginTopPercent="1.8%"
+            app:layout_widthPercent="25%">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableTop="@drawable/selector_onboarding_keep"
+                android:text="@string/button_keep"
+                android:textAppearance="@style/TextAppearance.ShowReal.Body2"
+                android:textColor="@color/selectable_text_color_red"
+                android:textSize="4dp"
+                app:font="@{@string/FontButtonBold}"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/button_chance"
+            android:background="@drawable/selector_onboarding_circle_purple"
+            android:padding="2dp"
+            app:layout_aspectRatio="100%"
+            app:layout_marginLeftPercent="7%"
+            app:layout_widthPercent="25%">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawablePadding="-1dp"
+                android:drawableTop="@drawable/selector_onboarding_chance"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.ShowReal.Body2"
+                android:textColor="@color/selectable_text_color_purple"
+                android:textSize="4dp"
+                app:font="@{@string/FontButtonBold}"
+                tools:text="@string/button_second_chance"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/button_cut"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/selector_onboarding_circle_purple"
+            app:layout_aspectRatio="100%"
+            app:layout_marginRightPercent="7%"
+            app:layout_widthPercent="25%">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableTop="@drawable/selector_onboarding_cut"
+                android:text="@string/button_cut"
+                android:textAppearance="@style/TextAppearance.ShowReal.Body2"
+                android:textColor="@color/selectable_text_color_purple"
+                android:textSize="4dp"
+                app:font="@{@string/FontButtonBold}"/>
+        </FrameLayout>
+
+    </android.support.percent.PercentRelativeLayout>
+
+</layout>

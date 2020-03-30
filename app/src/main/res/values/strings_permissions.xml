@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="permission_location_rationale_title">Location Permission</string>
+    <string name="permission_location_rationale_msg">Allow us to access your location to automatically find you on the map.</string>
+
+    <string name="permission_camera_rationale_title">Camera Permission</string>
+    <string name="permission_camera_rationale_msg">Allow us to access your camera to record a new clip.</string>
+    <string name="permission_camera_rationale_msg_profile">Allow us to access your camera to take a new profile picture.</string>
+</resources>

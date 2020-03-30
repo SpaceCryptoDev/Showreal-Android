@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.showreal.app.SRToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_toolbar"
+            android:theme="@style/Widget.ShowReal.Toolbar"
+            >
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:minHeight="?attr/actionBarSize"
+                android:textAppearance="@style/TextAppearance.ShowReal.Widget.Toolbar.Title"
+                app:font="@{@string/FontHeadline}"
+                tools:text="ShowReal"/>
+        </com.showreal.app.SRToolbar>
+
+
+    </RelativeLayout>
+
+
+</layout>

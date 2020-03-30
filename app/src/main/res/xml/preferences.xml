@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.showreal.app.features.settings.BindingPreference
+        android:key="@string/pref_key_password"
+        android:order="0"
+        android:title="@string/pref_title_password"/>
+
+    <Preference
+        android:key="@string/pref_key_password_divider"
+        android:layout="@layout/preference_divider"/>
+
+    <com.showreal.app.features.settings.BindingPreference
+        android:key="@string/pref_key_facebook"
+        android:order="1"
+        android:title="@string/pref_title_facebook"/>
+
+    <com.showreal.app.features.settings.BindingSwitchPreference
+        android:defaultValue="false"
+        android:order="2"
+        android:key="@string/pref_key_facebook_friends"
+        android:summary="@string/pref_summary_facebook_friends"
+        android:title="@string/pref_title_facebook_friends"/>
+
+    <Preference android:layout="@layout/preference_divider"/>
+
+    <com.showreal.app.features.settings.BindingSwitchPreference
+        android:defaultValue="true"
+        android:key="@string/pref_key_private"
+        android:summary="@string/pref_summary_private"
+        android:title="@string/pref_title_private"/>
+
+    <Preference android:layout="@layout/preference_category_divider"/>
+
+    <com.showreal.app.features.settings.BindingPreferenceCategory
+        android:key="@string/pref_key_data_collection"
+        android:title="@string/SettingsDataCollectionTitle">
+
+        <com.showreal.app.features.settings.BindingPreference
+            android:persistent="true"
+            android:selectable="false"
+            android:summary="@string/SettingsDataCollectionSummary"/>
+
+        <Preference android:layout="@layout/preference_divider"/>
+
+        <com.showreal.app.features.settings.BindingSwitchPreference
+            android:defaultValue="true"
+            android:key="@string/pref_key_analytics_enabled"
+            android:summaryOff="@string/SettingsAnalyticsOff"
+            android:summaryOn="@string/SettingsAnalyticsOn"
+            android:title="@string/SettingsAnalyticsTitle"/>
+        <Preference android:layout="@layout/preference_divider"/>
+
+        <com.showreal.app.features.settings.BindingSwitchPreference
+            android:defaultValue="true"
+            android:key="@string/pref_key_crashlytics_enabled"
+            android:summaryOff="@string/SettingsCrashlyticsOff"
+            android:summaryOn="@string/SettingsCrashlyticsOn"
+            android:title="@string/SettingsCrashlyticsTitle"/>
+
+        <Preference android:layout="@layout/preference_category_divider"/>
+    </com.showreal.app.features.settings.BindingPreferenceCategory>
+
+    <com.showreal.app.features.settings.BindingPreferenceCategory
+        android:key="@string/pref_key_units"
+        android:title="@string/pref_title_units">
+
+        <com.showreal.app.features.settings.SegmentPreference
+            android:key="@string/pref_key_height"
+            android:title="@string/pref_title_height"
+            app:first="@string/height_cm"
+            app:second="@string/height_feet"/>
+
+        <Preference android:layout="@layout/preference_divider"/>
+
+        <com.showreal.app.features.settings.SegmentPreference
+            android:key="@string/pref_key_radius"
+            android:title="@string/pref_title_radius"
+            app:first="@string/radius_km"
+            app:second="@string/radius_miles"/>
+
+        <Preference android:layout="@layout/preference_category_divider"/>
+    </com.showreal.app.features.settings.BindingPreferenceCategory>
+
+    <com.showreal.app.features.settings.BindingPreferenceCategory
+        android:key="@string/pref_key_notifications"
+        android:title="@string/pref_title_notifications">
+
+        <com.showreal.app.features.settings.BindingSwitchPreference
+            android:defaultValue="true"
+            android:key="@string/pref_key_notifications_nudge"
+            android:title="@string/pref_title_notifications_nudge"/>
+
+        <Preference android:layout="@layout/preference_divider"/>
+
+        <com.showreal.app.features.settings.BindingSwitchPreference
+            android:defaultValue="true"
+            android:key="@string/pref_key_notifications_match"
+            android:title="@string/pref_title_notifications_match"/>
+
+        <Preference android:layout="@layout/preference_divider"/>
+
+        <com.showreal.app.features.settings.BindingSwitchPreference
+            android:defaultValue="true"
+            android:key="@string/pref_key_notifications_user_update"
+            android:title="@string/pref_title_notifications_user_update"/>
+        <Preference android:layout="@layout/preference_divider"/>
+
+        <com.showreal.app.features.settings.BindingSwitchPreference
+            android:defaultValue="true"
+            android:key="@string/pref_key_notifications_message"
+            android:title="@string/pref_title_notifications_message"/>
+
+        <Preference android:layout="@layout/preference_category_divider"/>
+    </com.showreal.app.features.settings.BindingPreferenceCategory>
+
+    <com.showreal.app.features.settings.BindingPreference
+        android:key="@string/pref_key_introduction"
+        android:title="@string/pref_title_introduction"/>
+
+    <Preference android:layout="@layout/preference_divider"/>
+
+    <com.showreal.app.features.settings.BindingPreference
+        android:key="@string/pref_key_report"
+        android:title="@string/pref_title_report"/>
+
+    <Preference android:layout="@layout/preference_divider"/>
+
+    <com.showreal.app.features.settings.BindingPreference
+        android:key="@string/pref_key_terms"
+        android:title="@string/pref_title_terms"/>
+
+    <Preference android:layout="@layout/preference_divider"/>
+
+    <com.showreal.app.features.settings.BindingPreference
+        android:key="@string/pref_key_privacy"
+        android:title="@string/pref_title_privacy"/>
+
+    <Preference android:layout="@layout/preference_divider"/>
+
+    <com.showreal.app.features.settings.BindingPreference
+        android:key="@string/pref_key_safety"
+        android:title="@string/pref_title_safety"/>
+
+    <Preference android:layout="@layout/preference_divider"/>
+
+    <com.showreal.app.features.settings.BindingPreference
+        android:key="@string/pref_key_delete"
+        android:title="@string/pref_title_delete"/>
+
+    <Preference android:layout="@layout/preference_divider"/>
+
+    <com.showreal.app.features.settings.BindingPreference
+        android:key="@string/pref_key_logout"
+        android:title="@string/pref_title_logout"/>
+
+    <Preference android:layout="@layout/preference_category_divider"/>
+</PreferenceScreen>

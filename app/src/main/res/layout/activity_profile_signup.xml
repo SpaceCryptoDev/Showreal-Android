@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <fragment
+            android:id="@+id/fragment"
+            android:name="com.showreal.app.features.onboarding.signup.SignUpProfileActivity$SignUpProfileFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            tools:layout="@layout/fragment_profile_setup"/>
+
+        <com.showreal.app.features.onboarding.signup.SignUpStepsLayout
+            android:id="@+id/signup_steps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_buttons_bottom"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <CheckedTextView
+                android:id="@+id/step_profile"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checkMark="@null"
+                android:checked="true"
+                android:drawablePadding="8dp"
+                android:drawableTop="@drawable/signup_step"
+                android:gravity="center"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp"
+                android:text="@string/sign_up_profile"
+                android:textAlignment="gravity"
+                android:textColor="@color/step_text_color"/>
+
+            <CheckedTextView
+                android:id="@+id/step_showreal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checkMark="@null"
+                android:drawablePadding="8dp"
+                android:drawableTop="@drawable/signup_step"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center_horizontal"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp"
+                android:text="@string/signup_step_showreal"
+                android:textAlignment="gravity"
+                android:textColor="@color/step_text_color"/>
+
+            <CheckedTextView
+                android:id="@+id/step_start"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checkMark="@null"
+                android:drawablePadding="8dp"
+                android:drawableTop="@drawable/signup_step"
+                android:gravity="center_horizontal"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp"
+                android:text="@string/signup_step_start"
+                android:textAlignment="gravity"
+                android:textColor="@color/step_text_color"/>
+
+        </com.showreal.app.features.onboarding.signup.SignUpStepsLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextureView
+                android:id="@+id/camera_texture"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"/>
+
+            <FrameLayout
+                android:id="@+id/frame"
+                android:layout_centerInParent="true"
+                android:layout_margin="16dp"
+                app:layout_aspectRatio="100%"
+                app:layout_widthPercent="100%">
+
+                <com.showreal.app.playpause.PlayPauseView
+                    android:id="@+id/button_play"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:stateListAnimator="@animator/button_elevation"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    />
+            </FrameLayout>
+
+            <com.showreal.app.CircleOverlayView
+                android:id="@+id/overlay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                app:overlay_backgroundColor="@android:color/black"/>
+
+            <com.showreal.app.SRToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/title"
+                android:layout_alignTop="@+id/title"
+                android:background="@android:color/transparent"
+                android:paddingLeft="0dp"
+                android:theme="@style/Widget.ShowReal.Toolbar"/>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="72dp"
+                android:gravity="center_vertical"
+                android:minHeight="?attr/actionBarSize"
+                android:textAppearance="@style/TextAppearance.ShowReal.Widget.Toolbar.Title"
+                app:font="@{@string/FontHeadline}"
+                tools:text="ShowReal"/>
+
+            <TextView
+                android:id="@+id/question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/toolbar"
+                android:gravity="center"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textAppearance="@style/TextAppearance.ShowReal.Title"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                app:font="@{@string/FontBody2}"
+                tools:text="Question?"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_alignBottom="@id/frame"
+                android:background="@android:color/black"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                android:paddingLeft="64dp"
+                android:paddingRight="64dp"
+                app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_thumbnail"/>
+
+            <include
+                android:id="@+id/crop"
+                layout="@layout/crop_box"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/recycler"
+                android:layout_marginBottom="-3dp"
+                android:layout_marginLeft="64dp"
+                android:layout_marginRight="64dp"
+                />
+
+            <ImageButton
+                android:id="@+id/button_done"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/frame"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/transparent"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:padding="12dp"
+                android:src="@drawable/button_done_circle"/>
+
+            <ImageButton
+                android:id="@+id/button_edit"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_below="@id/frame"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/transparent"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:padding="12dp"
+                android:src="@drawable/button_edit_circle"
+                tools:visibility="visible"
+                android:visibility="gone"/>
+
+            <ImageButton
+                android:id="@+id/button_filter"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/frame"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/transparent"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:padding="12dp"
+                android:src="@drawable/button_filter_selector"/>
+
+        </android.support.percent.PercentRelativeLayout>
+
+        <include
+            android:id="@+id/loading_layout"
+            layout="@layout/loading_view"
+            android:visibility="gone"/>
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

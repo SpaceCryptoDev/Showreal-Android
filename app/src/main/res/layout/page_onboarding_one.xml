@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.showreal.app.features.onboarding.tutorial.CustomRecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_alignBottom="@+id/magnifier"
+            android:layout_alignTop="@+id/magnifier"
+            android:orientation="horizontal"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            app:layout_marginBottomPercent="3%"
+            app:layout_marginTopPercent="3%"
+            tools:listitem="@layout/page_onboarding_reel"/>
+
+        <com.showreal.app.features.onboarding.MagnifierView
+            android:id="@+id/magnifier"
+            android:layout_alignBottom="@id/image"
+            tools:background="@android:color/black"
+            android:layout_centerHorizontal="true"
+            app:layout_aspectRatio="100%"
+            app:layout_marginBottomPercent="0.3%"
+            app:layout_widthPercent="22.7%"
+            />
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/onboarding_one"
+            app:layout_aspectRatio="176.2%"
+            app:layout_widthPercent="100%"/>
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/TextAppearance.ShowReal.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_horizontal"
+            android:text="@string/onboarding_title_1"
+            android:textColor="@color/colorPrimaryDark"
+            app:font="@{@string/FontHeadline}"
+            app:layout_marginTopPercent="10%"/>
+
+        <TextView
+            android:id="@+id/text"
+            style="@style/TextAppearance.ShowReal.Body1"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:lineSpacingMultiplier="1.4"
+            android:text="@string/onboarding_text_1"
+            app:font="@{@string/FontBody1}"
+            app:layout_widthPercent="64%"/>
+
+    </android.support.percent.PercentRelativeLayout>
+
+</layout>

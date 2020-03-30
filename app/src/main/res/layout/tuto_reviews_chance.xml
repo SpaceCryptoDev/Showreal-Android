@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="36dp"
+        tools:background="@color/black87">
+
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:drawableLeft="@drawable/ic_help_flag"
+            android:drawablePadding="4dp"
+            android:gravity="center_vertical"
+            android:text="@string/here_to_help"
+            android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+            android:textColor="@android:color/white"
+            app:font="@{@string/FontBold}"
+            app:layout_marginBottomPercent="6%"/>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/header"
+            android:layout_centerHorizontal="true"
+            android:text="@string/tutorial_title_chance"
+            android:textAppearance="@style/TextAppearance.ShowReal.Headline"
+            android:textColor="@android:color/white"
+            android:textSize="34sp"
+            app:font="@{@string/FontTitle}"
+            app:layout_marginBottomPercent="5%"/>
+
+        <TextView
+            android:id="@+id/message"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:layout_centerHorizontal="true"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:lineSpacingMultiplier="@integer/help_line_spacing"
+            android:text="@string/tutorial_msg_chance"
+            android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+            android:textColor="@android:color/white"
+            app:font="@{@string/FontBody1}"
+            app:layout_widthPercent="66%"/>
+
+        <ImageButton
+            android:id="@+id/button_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/circle_white"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:padding="8dp"
+            android:src="@drawable/ic_clear_white_24dp"/>
+    </android.support.percent.PercentRelativeLayout>
+</layout>

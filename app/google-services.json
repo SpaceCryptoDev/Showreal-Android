@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "139554035552",
+    "firebase_url": "https://showreal-app.firebaseio.com",
+    "project_id": "showreal-app",
+    "storage_bucket": "showreal-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139554035552:android:e19713bcca0961a2",
+        "android_client_info": {
+          "package_name": "com.showreal.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "139554035552-rollm8uajuqja5rvqv85q49nm9ud7l1u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.showreal.app",
+            "certificate_hash": "E56CDFB489E8DC0C85AB9395DF515624905786C1"
+          }
+        },
+        {
+          "client_id": "139554035552-56v4j49frtu78acq4328bpkj58jnjdet.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.showreal.app",
+            "certificate_hash": "93CA5E517D413C855104B0656E96751664360AA3"
+          }
+        },
+        {
+          "client_id": "139554035552-2dom4p0iv520bnq6jg166hg3pmrtd1od.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIMyvjfneOga6QxjlFlh4NNUyfyxlRbSE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "139554035552-2dom4p0iv520bnq6jg166hg3pmrtd1od.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

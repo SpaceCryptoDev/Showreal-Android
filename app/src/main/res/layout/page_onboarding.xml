@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:src="@drawable/onboarding_one"/>
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/TextAppearance.ShowReal.Headline"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/image"
+            android:layout_centerHorizontal="true"
+            app:layout_marginTopPercent="10%"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/colorPrimaryDark"
+            app:font="@{@string/FontHeadline}"
+            app:layout_widthPercent="80%"
+            tools:text="@string/onboarding_title_3"/>
+
+        <TextView
+            android:id="@+id/text"
+            style="@style/TextAppearance.ShowReal.Body1"
+            android:lineSpacingMultiplier="1.4"
+            app:font="@{@string/FontBody1}"
+            app:layout_heightPercent="40%"
+            app:layout_widthPercent="80%"
+            tools:text="@string/onboarding_text_3"
+            android:layout_below="@+id/title"
+            android:layout_alignStart="@+id/title" />
+
+    </android.support.percent.PercentRelativeLayout>
+
+</layout>

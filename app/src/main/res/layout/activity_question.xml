@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black87">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="72dp"
+                android:gravity="center_vertical"
+                android:minHeight="?attr/actionBarSize"
+                android:textAppearance="@style/TextAppearance.ShowReal.Widget.Toolbar.Title"
+                app:font="@{@string/FontHeadline}"
+                tools:text="ShowReal"/>
+
+
+            <TextView
+                android:id="@+id/subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/toolbar"
+                android:layout_marginLeft="72dp"
+                android:textAppearance="@style/TextAppearance.ShowReal.Title"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                app:font="@{@string/FontBody2}"
+                tools:text="Please choose a question"/>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                tools:listitem="@layout/page_question"/>
+
+            <com.showreal.app.SRToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/title"
+                android:layout_alignTop="@+id/title"
+                android:background="@android:color/transparent"
+                android:paddingLeft="0dp"
+                android:theme="@style/Widget.ShowReal.Toolbar"/>
+        </RelativeLayout>
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

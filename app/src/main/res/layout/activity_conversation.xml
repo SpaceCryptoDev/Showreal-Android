@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.showreal.app.features.conversations.ConversationViewModel"/>
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/Theme.ShowReal.Toolbar.Conversation">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.ShowReal.Toolbar.Conversation">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="4dp"
+                    android:paddingTop="4dp">
+
+                    <com.github.siyamed.shapeimageview.HexagonImageView
+                        android:id="@+id/photo"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:layout_marginRight="8dp"
+                        android:adjustViewBounds="false"
+                        android:onClick="@{viewModel::onProfile}"
+                        app:imageUrl="@{viewModel.image}"
+                        app:siBorderWidth="0dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="0dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="0dp"
+                            android:text="@{viewModel.name}"
+                            android:textAppearance="@style/TextAppearance.ShowReal.Title"
+                            android:textColor="@color/black87"
+                            app:font="@{@string/FontSubHeadline}"
+                            tools:text="ShowReal"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minHeight="0dp"
+                            android:text="@{viewModel.lastOnline}"
+                            android:textAppearance="@style/TextAppearance.ShowReal.Caption"
+                            android:textColor="@color/black54"
+                            app:font="@{@string/FontCaption}"
+                            tools:text="Last online: 2 days ago"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginBottom="8dp"
+                android:elevation="3dp"
+                android:background="@color/grey_light">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:paddingBottom="16dp"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_chat_left"/>
+
+                <ProgressBar
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    android:id="@+id/progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </FrameLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey_light"
+                android:gravity="center_vertical"
+                android:paddingBottom="4dp"
+                android:paddingTop="4dp">
+
+                <ImageButton
+                    android:id="@+id/button_camera"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:enabled="@{viewModel.cameraEnabled}"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:onClick="@{viewModel::onCamera}"
+                    android:src="@drawable/button_camera_selector"/>
+
+                <EditText
+                    android:id="@+id/text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_weight="1"
+                    android:hint="@string/hint_chat"
+                    android:inputType="textCapSentences"
+                    android:onTextChanged="@{viewModel::onMessageChanged}"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:text="@{viewModel.message}"
+                    android:textAppearance="@style/TextAppearance.ShowReal.Body1"
+                    app:font="@{@string/FontBody1}"/>
+
+                <FrameLayout
+                    android:layout_width="48dp"
+                    android:layout_height="48dp">
+
+                    <ImageButton
+                        android:id="@+id/button_send"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:enabled="@{viewModel.sendEnabled}"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:onClick="@{viewModel::onSend}"
+                        android:src="@drawable/button_send_selector"/>
+
+                    <ProgressBar
+                        android:id="@+id/send_progress"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center"
+                        android:visibility="gone"/>
+
+                </FrameLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </android.support.design.widget.CoordinatorLayout>
+
+</layout>

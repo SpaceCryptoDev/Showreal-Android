@@ -1,0 +1,89 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:foreground="?attr/selectableItemBackground"
+        android:paddingLeft="?android:attr/listPreferredItemPaddingLeft"
+        android:paddingRight="?android:attr/listPreferredItemPaddingRight">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:minHeight="?android:attr/listPreferredItemHeight"
+            android:paddingBottom="16dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="16dp">
+
+            <TextView
+                android:id="@android:id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:text="@string/pref_title_height"
+                android:textAppearance="@style/TextAppearance.ShowReal.Title"
+                android:textColor="@color/black87"
+                android:textSize="16sp"
+                android:visibility="visible"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <RadioGroup
+                    android:id="@+id/units"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.38"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/unit_first"
+                        android:layout_width="48sp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/checkable_segment_left"
+                        android:button="@null"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:gravity="center"
+                        android:paddingBottom="6dp"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:paddingTop="6dp"
+                        android:text="@string/height_cm"
+                        android:textAllCaps="false"
+                        android:textAppearance="@style/TextAppearance.ShowReal.Button"
+                        android:textColor="@color/checkable_text_color"/>
+
+                    <RadioButton
+                        android:id="@+id/unit_second"
+                        android:layout_width="48sp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/checkable_segment_right"
+                        android:button="@null"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:gravity="center"
+                        android:paddingBottom="6dp"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:paddingTop="6dp"
+                        android:text="@string/height_feet"
+                        android:textAllCaps="false"
+                        android:textAppearance="@style/TextAppearance.ShowReal.Button"
+                        android:textColor="@color/checkable_text_color"/>
+
+
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </FrameLayout>
+</layout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:app="http://schemas.android.com/apk/res-auto"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:clickable="false"
+                  android:focusable="false"
+                  android:focusableInTouchMode="false"
+                  android:paddingTop="3dp"
+                  android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/crop_time"
+            android:paddingBottom="2dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:paddingTop="2dp"
+            android:text="5s"
+            android:textAppearance="@style/TextAppearance.ShowReal.Caption"
+            android:textColor="@android:color/white"
+            app:font="@{@string/FontCaption}"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="-3dp"
+            android:background="@drawable/crop_box"/>
+
+    </LinearLayout>
+</layout>

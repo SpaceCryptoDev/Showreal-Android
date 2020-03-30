@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.showreal.app.features.reviews.ReviewViewModel" />
+    </data>
+
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/layout"
+        style="@style/FixedWidth"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:background="@android:color/white"
+        android:paddingBottom="16dp">
+
+        <android.support.percent.PercentFrameLayout
+            android:id="@+id/frame"
+            android:layout_below="@+id/profile_details"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            app:layout_aspectRatio="100%"
+            app:layout_widthPercent="79.2%">
+
+            <ProgressBar
+                android:id="@+id/download_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/profile_real_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <View
+                android:id="@+id/question_overlay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ImageView
+                android:id="@+id/sponsor_image"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginBottom="16dp"
+                android:alpha="0"
+                app:layout_aspectRatio="100%"
+                app:layout_widthPercent="20%" />
+
+            <TextView
+                android:id="@+id/question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="24dp"
+                android:alpha="0"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                android:textColor="@color/white87"
+                android:textSize="18sp"
+                app:font="@{@string/FontSubHeadline}"
+                tools:alpha="1"
+                tools:text="What's the perfect takeaway food for a date night in?" />
+
+            <com.showreal.app.playpause.PlayPauseView
+                android:id="@+id/button_play"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:stateListAnimator="@animator/button_elevation"
+                android:visibility="gone"
+                tools:visibility="visible" />
+        </android.support.percent.PercentFrameLayout>
+
+
+        <com.showreal.app.RealOverlayView
+            android:id="@+id/overlay"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_alignBottom="@+id/button_keep"
+            android:layout_alignParentTop="true">
+
+            <ImageView
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:scaleType="fitEnd"
+                android:src="@{viewModel.shapeOne}"
+                app:layout_heightPercent="50%"
+                app:layout_marginBottomPercent="25%"
+                app:layout_marginRightPercent="50%"
+                app:layout_widthPercent="40%"
+                tools:src="@drawable/pattern_1" />
+
+
+            <ImageView
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center_vertical"
+                android:scaleType="fitEnd"
+                android:src="@{viewModel.shapeTwo}"
+                app:layout_heightPercent="50%"
+                app:layout_marginBottomPercent="25%"
+                app:layout_marginLeftPercent="50%"
+                app:layout_widthPercent="40%"
+                tools:src="@drawable/pattern_2" />
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="fitStart"
+                android:src="@{viewModel.shapeThree}"
+                app:layout_heightPercent="50%"
+                app:layout_marginTopPercent="50%"
+                app:layout_widthPercent="40%"
+                tools:src="@drawable/pattern_3" />
+
+        </com.showreal.app.RealOverlayView>
+
+        <io.netopen.hotbitmapgg.library.view.RingProgressBar
+            android:id="@+id/progress"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_below="@+id/profile_details"
+            android:layout_centerHorizontal="true"
+            app:max="100"
+            app:ringColor="@android:color/transparent"
+            app:ringProgressColor="@color/colorPrimary"
+            app:ringWidth="6dp"
+            app:style="STROKE"
+            app:textIsShow="false" />
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/profile_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical"
+            android:onClick="@{viewModel::onOpen}">
+
+            <com.github.siyamed.shapeimageview.HexagonImageView
+                android:id="@+id/photo"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_marginRight="4dp"
+                android:layout_toLeftOf="@+id/name"
+                android:adjustViewBounds="false"
+                app:imageUrl="@{viewModel.image}"
+                app:siBorderWidth="0dp" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="3dp"
+                android:text="@{viewModel.name}"
+                android:textAppearance="@style/TextAppearance.ShowReal.Body2"
+                app:font="@{@string/FontBody2}"
+                tools:text="Charlotte, 26" />
+
+            <TextView
+                android:id="@+id/city"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/name"
+                android:layout_below="@id/name"
+                android:layout_marginTop="1dp"
+                android:drawableLeft="@drawable/ic_home_16dp"
+                android:drawablePadding="4dp"
+                android:text="@{viewModel.city}"
+                android:textAppearance="@style/TextAppearance.ShowReal.Body1"
+                android:visibility="@{viewModel == null ? View.INVISIBLE : View.VISIBLE}"
+                app:font="@{@string/FontBody1}"
+                app:layout_widthPercent="50%"
+                tools:text="Newcastle upon Tyne" />
+
+        </android.support.percent.PercentRelativeLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/button_mute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/frame"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/ic_sound_on"
+            android:stateListAnimator="@animator/button_elevation"
+            app:backgroundTint="@color/red"
+            app:fabSize="mini" />
+
+        <FrameLayout
+            android:id="@+id/button_keep"
+            android:layout_below="@id/frame"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:clickable="true"
+            android:foreground="@drawable/selectable_circle_red"
+            android:onClick="@{viewModel::onGoforit}"
+            app:layout_aspectRatio="100%"
+            app:layout_widthPercent="25%">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableTop="@drawable/ic_check_red_24dp"
+                android:text="@string/button_keep"
+                android:textAppearance="@style/TextAppearance.ShowReal.Body2"
+                android:textColor="@color/red"
+                app:font="@{@string/FontButtonBold}" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/button_chance"
+            android:layout_alignTop="@id/button_keep"
+            android:layout_marginTop="-20dp"
+            android:clickable="true"
+            android:foreground="@drawable/selectable_circle_purple"
+            android:onClick="@{viewModel::onChance}"
+            android:padding="8dp"
+            app:layout_aspectRatio="100%"
+            app:layout_marginLeftPercent="7%"
+            app:layout_widthPercent="25%">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_refresh" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@{viewModel.chanceText}"
+                    android:textAppearance="@style/TextAppearance.ShowReal.Body2"
+                    android:textColor="@color/purple_dark"
+                    app:font="@{@string/FontButtonBold}"
+                    tools:text="@string/button_maybe" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/button_cut"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/button_keep"
+            android:layout_marginTop="-20dp"
+            android:clickable="true"
+            android:foreground="@drawable/selectable_circle_purple"
+            android:onClick="@{viewModel::onCut}"
+            app:layout_aspectRatio="100%"
+            app:layout_marginRightPercent="7%"
+            app:layout_widthPercent="25%">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableTop="@drawable/ic_clear_purple_24dp"
+                android:gravity="center"
+                android:text="@string/button_cut"
+                android:textAppearance="@style/TextAppearance.ShowReal.Body2"
+                android:textColor="@color/purple_dark"
+                app:font="@{@string/FontButtonBold}" />
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/imageViewHalfCircle"
+            android:background="@drawable/semicircle"
+            app:layout_aspectRatio="100%"
+            app:layout_marginRightPercent="7%"
+            app:layout_widthPercent="25%" />
+
+        <ImageButton
+            android:id="@+id/button_goforit"
+            android:layout_width="170dp"
+            android:layout_height="70dp"
+            android:layout_below="@id/frame"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/btn_goforit"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:padding="8dp"
+            android:onClick="@{viewModel::onCut}"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/imageViewArc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:src="@drawable/bottom_arc"
+            android:layout_marginTop="-50dp"
+            android:layout_below="@+id/button_keep"/>
+
+    </android.support.percent.PercentRelativeLayout>
+</layout>

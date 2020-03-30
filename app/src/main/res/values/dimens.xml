@@ -1,0 +1,8 @@
+<resources>
+    <dimen name="pause_bar_width">4dp</dimen>
+    <dimen name="pause_bar_distance">4dp</dimen>
+    <dimen name="pause_bar_height">16dp</dimen>
+
+    <dimen name="explore_fab_size">64dp</dimen>
+
+</resources>

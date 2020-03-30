@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.showreal.app.features.profile.EditProfileViewModel"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/coordinator"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <android.support.design.widget.AppBarLayout
+                    android:id="@+id/app_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <include
+                        android:id="@+id/toolbar_layout"
+                        layout="@layout/toolbar_buttons"/>
+
+                </android.support.design.widget.AppBarLayout>
+
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.github.siyamed.shapeimageview.HexagonImageView
+                            android:id="@+id/profile_image"
+                            android:layout_width="88dp"
+                            android:layout_height="88dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginTop="16dp"
+                            android:foreground="?attr/selectableItemBackgroundBorderless"
+                            android:onClick="@{viewModel::onImage}"
+                            android:src="@drawable/profile_pic_placeholder"
+                            app:siBorderWidth="0dp"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="32dp"
+                            android:paddingRight="32dp"
+                            android:weightSum="1.0">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.35"
+                                android:text="@string/field_first_name"
+                                android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                                app:font="@{@string/FontTitle}"/>
+
+                            <EditText
+                                android:id="@+id/field_first_name"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.62"
+                                android:inputType="textCapWords|textPersonName"
+                                android:onTextChanged="@{viewModel::onFirstNameChanged}"
+                                android:text="@{viewModel.firstName}"
+                                android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                                app:font="@{@string/FontBody2}"
+                                tools:text="Paul"/>
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="16dp"
+                            android:background="@color/black20"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="32dp"
+                            android:paddingRight="32dp"
+                            android:weightSum="1.0">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.35"
+                                android:text="@string/field_last_name"
+                                android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                                app:font="@{@string/FontTitle}"/>
+
+                            <EditText
+                                android:id="@+id/field_last_name"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.62"
+                                android:inputType="textCapWords|textPersonName"
+                                android:onTextChanged="@{viewModel::onLastNameChanged}"
+                                android:text="@{viewModel.lastName}"
+                                android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                                app:font="@{@string/FontBody2}"
+                                tools:text="Harris"/>
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="16dp"
+                            android:background="@color/black20"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="32dp"
+                            android:paddingRight="32dp"
+                            android:weightSum="1.0">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.35"
+                                android:text="@string/field_dob_short"
+                                android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                                app:font="@{@string/FontTitle}"/>
+
+                            <EditText
+                                android:id="@+id/field_dob"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.62"
+                                android:focusable="false"
+                                android:onClick="@{viewModel::onDobClick}"
+                                android:drawableRight="@drawable/ic_keyboard_arrow_right_gray_20dp"
+                                android:text="@{viewModel.dateOfBirth}"
+                                android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                                app:font="@{@string/FontBody2}"
+                                tools:text="24 / 12 / 1972"/>
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="16dp"
+                            android:background="@color/black20"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="32dp"
+                            android:paddingRight="32dp"
+                            android:weightSum="1.0">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.35"
+                                android:text="@string/field_email"
+                                android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                                app:font="@{@string/FontTitle}"/>
+
+                            <EditText
+                                android:id="@+id/field_email"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.62"
+                                android:inputType="textEmailAddress"
+                                android:onTextChanged="@{viewModel::onEmailChanged}"
+                                android:text="@{viewModel.email}"
+                                android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                                app:font="@{@string/FontBody2}"
+                                tools:text="p.harris@gmail.com"/>
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="16dp"
+                            android:background="@color/black20"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:gravity="center_vertical"
+                            android:weightSum="1">
+
+                            <TextView
+                                android:id="@+id/field_gender"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="-8dp"
+                                android:layout_weight="0.25"
+                                android:text="@string/field_gender"
+                                android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                                app:font="@{@string/FontTitle}"/>
+
+                            <RadioGroup
+                                android:id="@+id/gender"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.7"
+                                android:checkedButton="@{viewModel.checkedGender}"
+                                android:orientation="horizontal"
+                                app:onCheckedChangeListener="@{viewModel.onGenderChanged}">
+
+                                <RadioButton
+                                    android:id="@+id/gender_male"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:button="@null"
+                                    android:drawablePadding="4dp"
+                                    android:drawableTop="@drawable/checkable_male"
+                                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                                    android:gravity="center_horizontal"
+                                    android:padding="8dp"
+                                    android:text="@string/gender_male"
+                                    android:textAppearance="@style/TextAppearance.ShowReal.Body2"
+                                    android:textColor="@color/checkable_text_color_black"
+                                    app:font="@{@string/FontBody2}"/>
+
+
+                                <RadioButton
+                                    android:id="@+id/gender_female"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:button="@null"
+                                    android:drawablePadding="4dp"
+                                    android:drawableTop="@drawable/checkable_female"
+                                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                                    android:gravity="center_horizontal"
+                                    android:padding="8dp"
+                                    android:text="@string/gender_female"
+                                    android:textAppearance="@style/TextAppearance.ShowReal.Body2"
+                                    android:textColor="@color/checkable_text_color_black"
+                                    app:font="@{@string/FontBody2}"/>
+
+                            </RadioGroup>
+
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="16dp"
+                            android:background="@color/black20"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:gravity="center_vertical"
+                            android:weightSum="1">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.35"
+                                android:text="@string/field_height"
+                                android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                                app:font="@{@string/FontTitle}"/>
+
+                            <TextView
+                                android:id="@+id/field_height"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.22"
+                                android:text="@{viewModel.heightString}"
+                                android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                                app:font="@{@string/FontBody2}"
+                                tools:text="180cm"/>
+
+                            <RadioGroup
+                                android:id="@+id/height_unit"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.38"
+                                android:checkedButton="@{viewModel.checkedUnits}"
+                                android:gravity="right"
+                                android:orientation="horizontal"
+                                app:onCheckedChangeListener="@{viewModel.onUnitsChanged}">
+
+                                <RadioButton
+                                    android:id="@+id/height_cm"
+                                    android:layout_width="48sp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/checkable_segment_left"
+                                    android:button="@null"
+                                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                                    android:gravity="center"
+                                    android:paddingBottom="6dp"
+                                    android:paddingLeft="4dp"
+                                    android:paddingRight="4dp"
+                                    android:paddingTop="6dp"
+                                    android:text="@string/height_cm"
+                                    android:textAllCaps="false"
+                                    android:textAppearance="@style/TextAppearance.ShowReal.Button"
+                                    android:textColor="@color/checkable_text_color"
+                                    app:font="@{@string/FontButton}"/>
+
+                                <RadioButton
+                                    android:id="@+id/height_feet"
+                                    android:layout_width="48sp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/checkable_segment_right"
+                                    android:button="@null"
+                                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                                    android:gravity="center"
+                                    android:paddingBottom="6dp"
+                                    android:paddingLeft="4dp"
+                                    android:paddingRight="4dp"
+                                    android:paddingTop="6dp"
+                                    android:text="@string/height_feet"
+                                    android:textAllCaps="false"
+                                    android:textAppearance="@style/TextAppearance.ShowReal.Button"
+                                    android:textColor="@color/checkable_text_color"
+                                    app:font="@{@string/FontButton}"/>
+
+                            </RadioGroup>
+
+                        </LinearLayout>
+
+                        <SeekBar
+                            android:id="@+id/height_slider"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="24dp"
+                            android:layout_marginRight="24dp"
+                            android:layout_marginTop="16dp"
+                            android:max="244"
+                            app:onSeekBarChangeListener="@{viewModel.onHeightChanged}"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/black20"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:onClick="@{viewModel::onLocation}"
+                            android:paddingBottom="16dp"
+                            android:paddingLeft="32dp"
+                            android:paddingRight="32dp"
+                            android:paddingTop="16dp"
+                            android:weightSum="1.0">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.35"
+                                android:gravity="center_vertical"
+                                android:text="@string/field_location"
+                                android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                                app:font="@{@string/FontTitle}"/>
+
+                            <TextView
+                                android:id="@+id/field_location"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.62"
+                                android:gravity="center_vertical"
+                                android:text="@{viewModel.location}"
+                                android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                                app:font="@{@string/FontBody2}"
+                                android:drawableRight="@drawable/ic_keyboard_arrow_right_gray_20dp"
+                                tools:text="Addington"/>
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginBottom="32dp"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"
+                            android:background="@color/black20"/>
+                    </LinearLayout>
+
+                </ScrollView>
+
+            </LinearLayout>
+        </android.support.design.widget.CoordinatorLayout>
+
+        <include
+            android:id="@+id/loading"
+            layout="@layout/loading_view"
+            android:visibility="gone"/>
+    </FrameLayout>
+</layout>

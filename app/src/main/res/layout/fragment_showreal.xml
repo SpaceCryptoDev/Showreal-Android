@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="viewModel"
+            type="com.showreal.app.features.real.myreal.MyRealViewModel"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.showreal.app.features.real.myreal.MyRealScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:clipToPadding="false"
+                android:paddingBottom="16dp">
+
+                <LinearLayout
+                    android:id="@+id/top_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp">
+
+                        <ImageButton
+                            android:id="@+id/button_edit"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_toLeftOf="@id/center"
+                            android:background="@android:color/transparent"
+                            android:foreground="?attr/selectableItemBackgroundBorderless"
+                            android:padding="2dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_edit_circle"
+                            />
+
+                        <android.support.v4.widget.Space
+                            android:id="@+id/center"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_centerHorizontal="true"/>
+
+                        <ImageButton
+                            android:id="@+id/button_delete"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_marginLeft="8dp"
+                            android:padding="2dp"
+                            android:layout_toRightOf="@+id/center"
+                            android:background="@android:color/transparent"
+                            android:foreground="?attr/selectableItemBackgroundBorderless"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_delete_circle"
+                            />
+
+                        <ImageButton
+                            android:id="@+id/button_close_bar"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_gravity="right"
+                            android:background="@android:color/transparent"
+                            android:foreground="?attr/selectableItemBackgroundBorderless"
+                            android:onClick="@{viewModel::onCloseBar}"
+                            android:src="@drawable/ic_clear_grey_24dp"/>
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/clip_question"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/red"
+                        android:gravity="center"
+                        android:paddingBottom="16dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:paddingTop="16dp"
+                        android:textAppearance="@style/TextAppearance.ShowReal.Body1"
+                        android:textColor="@android:color/white"
+                        app:font="@{@string/FontBody1}"
+                        tools:text="This is the question"/>
+
+                </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/clip_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="84dp"
+                    android:layout_below="@id/top_bar"
+                    android:background="@color/status_bar_light"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    android:paddingLeft="66dp"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_clip"
+                    />
+
+                <FrameLayout
+                    android:id="@+id/fab_container"
+                    android:layout_width="64dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/clip_recycler"
+                    android:layout_alignTop="@id/clip_recycler">
+
+                    <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/fab_add"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:layout_gravity="center"
+                        android:onClick="@{viewModel::onAdd}"
+                        android:src="@drawable/ic_add_white_24dp"
+                        app:backgroundTint="@color/purple_dark"
+                        app:fabSize="mini"/>
+
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/prompt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/fab_container"
+                    android:layout_alignTop="@id/fab_container"
+                    android:layout_toRightOf="@id/fab_container"
+                    android:gravity="center_vertical"
+                    android:text="@string/showreal_prompt"
+                    android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                    android:textColor="@color/black54"
+                    android:visibility="@{viewModel.promptVisibility}"
+                    app:font="@{@string/FontSubHeadline}"
+                    tools:visibility="gone"/>
+
+                <FrameLayout
+                    android:id="@+id/segments"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/clip_recycler"
+                    android:layout_marginBottom="16dp"
+                    android:animateLayoutChanges="false"
+                    android:background="@color/grey_light">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/segment_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="68dp"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="horizontal"
+                        app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                        tools:listitem="@layout/item_segment_empty"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:background="@drawable/dottedlinebox" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/dottedlinebox" />
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/showreal_drag_prompt"
+                        android:textAppearance="@style/TextAppearance.ShowReal.Body2"
+                        android:textColor="@color/black54"
+                        android:textSize="16sp"
+                        android:visibility="@{viewModel.emptyVisibility}"
+                        app:font="@{@string/FontBody2}"/>
+
+                </FrameLayout>
+
+
+                <android.support.percent.PercentFrameLayout
+                    android:id="@+id/frame"
+                    android:layout_below="@id/segments"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="14dp"
+                    android:animateLayoutChanges="false"
+                    app:layout_aspectRatio="100%"
+                    app:layout_widthPercent="79.2%">
+
+                    <ImageView
+                        android:id="@+id/question_overlay"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/grey_light"/>
+
+                    <ImageView
+                        android:id="@+id/sponsor_image"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:layout_marginBottom="16dp"
+                        android:alpha="0"
+                        app:layout_aspectRatio="100%"
+                        app:layout_widthPercent="20%"/>
+
+                    <TextView
+                        android:id="@+id/question"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="24dp"
+                        android:alpha="0"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                        android:textColor="@color/white87"
+                        android:textSize="18sp"
+                        app:font="@{@string/FontSubHeadline}"
+                        tools:text="What's the perfect takeaway food for a date night in?"
+                        tools:visibility="visible"/>
+
+                    <com.showreal.app.playpause.PlayPauseView
+                        android:id="@+id/button_play"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center"
+                        android:clickable="true"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:stateListAnimator="@animator/button_elevation"
+                        android:visibility="gone"
+                        tools:visibility="visible"
+                        />
+
+                    <TextView
+                        android:id="@+id/empty"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="24dp"
+                        android:gravity="center"
+                        android:text="@string/real_empty"
+                        android:textAppearance="@style/TextAppearance.ShowReal.Body1"
+                        android:textColor="@color/black54"
+                        android:visibility="@{viewModel.emptyVisibility}"
+                        app:font="@{@string/FontBody1}"
+                        tools:visibility="visible"/>
+                </android.support.percent.PercentFrameLayout>
+
+
+                <com.showreal.app.RealOverlayView
+                    android:id="@+id/overlay"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_alignBottom="@id/frame"
+                    android:layout_alignTop="@id/frame"
+                    >
+
+                </com.showreal.app.RealOverlayView>
+
+                <io.netopen.hotbitmapgg.library.view.RingProgressBar
+                    android:id="@+id/progress"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_below="@id/top_bar"
+                    android:layout_centerHorizontal="true"
+                    app:max="100"
+                    app:ringColor="@android:color/transparent"
+                    app:ringProgressColor="@color/colorPrimary"
+                    app:ringWidth="6dp"
+                    app:style="STROKE"
+                    app:textIsShow="false"/>
+
+                <Button
+                    android:id="@+id/button_cancel"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/frame"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="24dp"
+                    android:layout_toRightOf="@id/space"
+                    android:background="@drawable/button_publish"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:gravity="center"
+                    android:onClick="@{viewModel::onPublish}"
+                    android:paddingLeft="32dp"
+                    android:paddingRight="16dp"
+                    android:text="@string/button_publish"
+                    android:textAppearance="@style/TextAppearance.ShowReal.Button"
+                    android:textColor="@color/red"
+                    android:visibility="@{viewModel.publishVisibility}"
+                    app:font="@{@string/FontButton}"/>
+
+
+            </android.support.percent.PercentRelativeLayout>
+
+        </com.showreal.app.features.real.myreal.MyRealScrollView>
+
+        <include
+            android:id="@+id/loading"
+            layout="@layout/loading_view"
+            android:visibility="gone"/>
+    </FrameLayout>
+</layout>

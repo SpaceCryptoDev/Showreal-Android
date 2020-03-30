@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.showreal.app.features.conversations.matches.MatchesViewModel"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/app_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <include
+                    android:id="@+id/toolbar_layout"
+                    layout="@layout/toolbar_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </android.support.design.widget.AppBarLayout>
+
+            <android.support.percent.PercentRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <android.support.v4.widget.SwipeRefreshLayout
+                    android:id="@+id/refresh"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:paddingTop="8dp"
+                        app:layoutManager="android.support.v7.widget.GridLayoutManager"
+                        app:spanCount="@integer/matches_columns"
+                        tools:listitem="@layout/item_match"/>
+                </android.support.v4.widget.SwipeRefreshLayout>
+
+                <TextView
+                    android:id="@+id/empty"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text="@{viewModel.emptyText}"
+                    app:layout_marginPercent="20%"
+                    tools:text="No matches yet!"
+                    android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                    android:textColor="@color/black54"
+                    android:visibility="gone"
+                    android:lineSpacingMultiplier="1.2"
+                    app:font="@{@string/FontTitle}"
+                    app:layout_widthPercent="70%"
+                    tools:visibility="visible"/>
+
+                <ImageView
+                    android:id="@+id/empty3"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="8dp"
+                    android:src="@drawable/ic_arrow_down"
+                    android:visibility="gone"
+                    app:layout_widthPercent="20%"
+                    tools:visibility="visible"
+                    />
+
+                <TextView
+                    android:id="@+id/empty2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="28dp"
+                    android:text="@string/tap_here_to_find_matches"
+                    android:textAppearance="@style/TextAppearance.ShowReal.Body1"
+                    android:textColor="@color/black54"
+                    android:visibility="gone"
+                    app:font="@{@string/FontBody1}"
+                    app:layout_marginLeftPercent="13%"
+                    tools:visibility="visible"/>
+
+                <include
+                    android:id="@+id/loading"
+                    layout="@layout/loading_view"
+                    android:visibility="gone"/>
+            </android.support.percent.PercentRelativeLayout>
+
+        </LinearLayout>
+
+        <com.showreal.app.features.conversations.SRSearchView
+            android:id="@+id/search_view"
+            style="@style/MaterialSearchViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </FrameLayout>
+</layout>

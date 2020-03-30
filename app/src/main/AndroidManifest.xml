@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.showreal.app"
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-sdk tools:overrideLibrary="com.novoda.simplechromecustomtabs"/>
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission
+        android:name="android.permission.GET_ACCOUNTS"
+        android:maxSdkVersion="22"/>
+    <uses-permission
+        android:name="android.permission.AUTHENTICATE_ACCOUNTS"
+        android:maxSdkVersion="22"/>
+    <uses-permission
+        android:name="android.permission.MANAGE_ACCOUNTS"
+        android:maxSdkVersion="22"/>
+    <uses-permission
+        android:name="android.permission.USE_CREDENTIALS"
+        android:maxSdkVersion="22"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+
+    <application
+        android:name=".TheDistanceApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ShowReal"
+        tools:replace="allowBackup">
+
+        <meta-data
+            android:name="com.showreal.app.features.conversations.MessageGlideModule"
+            android:value="GlideModule"/>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"/>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="015a3121c76ea8baec90c4a97c7bd1976400adad"/>
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/maps_api_key"/>
+
+        <activity
+            android:name=".features.onboarding.LaunchActivity"
+            android:label="@string/app_name"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ShowReal.Launch"/>
+        <activity
+            android:name=".features.onboarding.tutorial.OnboardingActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ShowReal.Launch"/>
+        <activity
+            android:name=".features.real.ReelActivity"
+            android:label="@string/title_real"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".features.onboarding.signup.AccountActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity
+            android:name=".features.onboarding.signup.SignUpProfileActivity"
+            android:label="@string/sign_up_profile"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".features.profile.LocationActivity"
+            android:label="@string/title_location"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".features.profile.CropActivity"
+            android:label="@string/sign_up_profile"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".features.onboarding.signup.ForgottenPasswordActivity"
+            android:label="@string/title_forgotten_password"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".features.onboarding.tutorial.IntroActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ShowReal.LightStatus"/>
+        <activity
+            android:name=".features.settings.SettingsActivity"
+            android:label="@string/activity_settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ShowReal.Settings"/>
+        <activity
+            android:name=".features.settings.ReportActivity"
+            android:label="@string/alert_title_report"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".features.settings.password.ChangePasswordActivity"
+            android:label="@string/activity_change_password"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".features.settings.delete.DeleteAccountActivity"
+            android:label="@string/activity_delete_account"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".features.profile.EditProfileActivity"
+            android:label="@string/title_edit_profile"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity
+            android:name=".features.reviews.preferences.PreferencesActivity"
+            android:label="@string/title_review_preferences"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".features.reviews.preferences.SearchLocationActivity"
+            android:label="@string/title_location"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="@string/fb_login_protocol_scheme"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".features.status.StatusActivity"
+            android:label="@string/title_failed_connection"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".features.profile.instagram.InstagramLoginActivity"
+            android:label="@string/activity_instagram_login"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".features.profile.instagram.PhotoActivity"
+            android:label="@string/activity_photo"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".features.profile.other.OtherProfileActivity"
+            android:label="@string/activity_profile"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".features.conversations.ConversationActivity"
+            android:label="@string/activity_messages"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".features.conversations.unmatch.UnmatchActivity"
+            android:label="@string/title_unmatch"
+            android:parentActivityName=".features.conversations.ConversationActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".features.real.myreal.MyRealActivity"
+            android:label="@string/title_my_real"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".features.real.myreal.QuestionActivity"
+            android:label="@string/title_new_clip"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ShowReal.Translucent"/>
+
+        <activity
+            android:name=".features.real.myreal.ClipAdjustActivity"
+            android:label="@string/title_new_clip"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ShowReal"/>
+
+        <activity
+            android:name=".features.real.myreal.RecordActivity"
+            android:label="@string/title_record"
+            android:parentActivityName=".features.real.myreal.MyRealActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ShowReal.Camera"/>
+
+        <activity
+            android:name=".features.real.myreal.CropVideoActivity"
+            android:label="@string/title_edit"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".features.onboarding.explore.ExploreActivity"
+            android:label="@string/title_real"
+            android:screenOrientation="portrait"/>
+
+        <receiver
+            android:name="com.google.android.gms.analytics.AnalyticsReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.analytics.AnalyticsService"
+            android:enabled="true"
+            android:exported="false"/>
+        <service android:name=".data.account.AuthenticatorService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator"/>
+        </service>
+        <service android:name=".features.notifications.SRFirebaseInstanceIdService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name=".features.notifications.SRFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="com.appboy.AppboyGcmReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.appboy.action.APPBOY_PUSH_CLICKED"/>
+
+                <category android:name="com.showreal.app"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".features.notifications.NotificationBroadcastReceiver" android:exported="false" >
+            <intent-filter>
+
+                <action android:name="com.showreal.app.intent.APPBOY_PUSH_RECEIVED" />
+                <action android:name="com.showreal.app.intent.APPBOY_NOTIFICATION_OPENED" />
+
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".features.conversations.ReplyService"
+            android:enabled="true"
+            android:exported="false">
+        </service>
+    </application>
+
+</manifest>

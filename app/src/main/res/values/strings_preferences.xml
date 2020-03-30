@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_key_data_collection">data_collection</string>
+    <string name="pref_key_crashlytics_enabled">send_crashes</string>
+    <string name="pref_key_analytics_enabled">send_analytics</string>
+
+    <string name="simulate_crash">Simulate Crash</string>
+    <string name="simulate_event">Test Analytic Event</string>
+
+    <string name="SettingsDataCollectionTitle">Data Collected</string>
+    <string name="SettingsDataCollectionSummary">We collect data on the usage of this app to understand how we can make it better and ensure that it meets your needs. All the data collected is anonymous and cannot be traced to you.</string>
+    <string name="SettingsCrashlyticsTitle">Send crash reports</string>
+    <string name="SettingsCrashlyticsOn">Crashlytics is used to collect crash reports which help us fix any issues more quickly.</string>
+    <string name="SettingsCrashlyticsOff">Crash reports will not be collected.</string>
+    <string name="SettingsAnalyticsTitle">Send usage data</string>
+    <string name="SettingsAnalyticsOn">Google Analytics is used to help us build a picture of how the app is used to inform updates and new developments.</string>
+    <string name="SettingsAnalyticsOff">Usage data will not be collected.</string>
+    <string name="pref_key_password">change_password</string>
+
+    <string name="pref_title_password">Change password</string>
+    <string name="pref_key_facebook">connect_facebook</string>
+    <string name="pref_title_facebook">Connect with Facebook</string>
+    <string name="pref_title_height">Height</string>
+    <string name="pref_title_radius">Search radius</string>
+    <string name="radius_miles">Miles</string>
+    <string name="radius_km">km</string>
+    <string name="pref_key_units">category_units</string>
+    <string name="pref_title_units">Unit Preference</string>
+    <string name="pref_key_height">units_height</string>
+    <string name="pref_key_radius">units_radius</string>
+    <string name="pref_key_notifications">notifications</string>
+    <string name="pref_title_notifications">Notifications</string>
+    <string name="pref_key_notifications_nudge">notifications_nudge</string>
+    <string name="pref_title_notifications_nudge">Nudge</string>
+    <string name="pref_key_notifications_match">notifications_match</string>
+    <string name="pref_title_notifications_match">Successful match</string>
+    <string name="pref_key_notifications_user_update">notifications_update</string>
+    <string name="pref_title_notifications_user_update">User update</string>
+    <string name="pref_key_notifications_message">notifications_message</string>
+    <string name="pref_title_notifications_message">New message</string>
+    <string name="pref_key_introduction">introduction</string>
+    <string name="pref_title_introduction">Introduction</string>
+    <string name="pref_key_report">report</string>
+    <string name="pref_title_report">@string/alert_title_report</string>
+    <string name="pref_key_terms">terms</string>
+    <string name="pref_title_terms"><![CDATA[Terms & Conditions]]></string>
+    <string name="pref_title_privacy">Privacy Policy</string>
+    <string name="pref_key_privacy">privacy_policy</string>
+    <string name="pref_key_delete">delete_ccount</string>
+    <string name="pref_title_delete">Delete account</string>
+    <string name="pref_key_logout">logout</string>
+    <string name="pref_title_logout">Log out</string>
+    <string name="pref_key_private">account_private</string>
+    <string name="pref_summary_private">When your account is private, only people on your message list can see your profile and ShowReal.</string>
+    <string name="pref_title_private">Private account</string>
+</resources>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:showIn="@layout/page_onboarding_three">
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:paddingTop="4dp"
+        android:background="#e0e0dc"
+        android:paddingBottom="4dp"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:id="@+id/button_cut"
+            android:layout_toLeftOf="@+id/button_chance"
+            android:background="@drawable/circle_purple_onboarding"
+            app:layout_aspectRatio="100%"
+            app:layout_marginRightPercent="7%"
+            app:layout_marginLeftPercent="3%"
+            app:layout_widthPercent="25%">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableTop="@drawable/ic_clear_purple_onboarding"
+                android:text="@string/button_cut"
+                android:textAppearance="@style/TextAppearance.ShowReal.Body2"
+                android:textColor="@color/purple_dark"
+                android:textSize="4dp"
+                app:font="@{@string/FontButtonBold}"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/button_chance"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/circle_purple_onboarding"
+            android:padding="2dp"
+            app:layout_aspectRatio="100%"
+            app:layout_marginRightPercent="3%"
+            app:layout_widthPercent="25%">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawablePadding="-1dp"
+                android:drawableTop="@drawable/ic_refresh_purple_onboarding"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.ShowReal.Body2"
+                android:textColor="@color/purple_dark"
+                android:textSize="4dp"
+                app:font="@{@string/FontButtonBold}"
+                tools:text="@string/button_second_chance"/>
+        </FrameLayout>
+
+    </android.support.percent.PercentRelativeLayout>
+
+</layout>

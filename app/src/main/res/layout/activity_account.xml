@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.showreal.app.features.onboarding.signup.AccountViewModel"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.showreal.app.SRTabLayout
+                android:id="@+id/tabs"
+                android:paddingTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gradient_tabs_top"
+                android:elevation="4dp"
+                app:tabGravity="center"
+                app:tabIndicatorColor="@android:color/white"
+                app:tabMinWidth="100dp"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="@android:color/white"
+                app:tabTextAppearance="@style/TextAppearance.ShowReal.SubHead"
+                app:tabTextColor="@color/white87"/>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/pager"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                style="@style/TextAppearance.ShowReal.Caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/status_bar_light"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="@string/terms_prompt"
+                app:font="@{@string/FontCaption}"/>
+
+            <LinearLayout
+                android:id="@+id/buttons"
+                style="@style/Widget.ShowReal.ButtonBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    style="@style/Widget.ShowReal.ButtonBar.Button"
+                    android:onClick="@{viewModel::onPrivacy}"
+                    android:padding="0dp"
+                    android:text="@string/button_privacy"
+                    app:font="@{@string/FontButton}"/>
+
+                <include layout="@layout/button_separator"/>
+
+                <Button
+                    style="@style/Widget.ShowReal.ButtonBar.Button"
+                    android:onClick="@{viewModel::onTerms}"
+                    android:text="@string/button_tcs"
+                    app:font="@{@string/FontButton}"/>
+
+                <include layout="@layout/button_separator"/>
+
+                <Button
+                    android:id="@+id/button_safety_tips"
+                    style="@style/Widget.ShowReal.ButtonBar.Button"
+                    android:onClick="@{viewModel::onTips}"
+                    android:text="@string/button_safety_tips"
+                    app:font="@{@string/FontButton}"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <include
+            android:id="@+id/loading"
+            layout="@layout/loading_view"
+            android:visibility="gone"/>
+    </FrameLayout>
+</layout>

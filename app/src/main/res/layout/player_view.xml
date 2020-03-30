@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <android.support.percent.PercentRelativeLayout android:id="@+id/layout"
+                                                   xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="wrap_content"
+                                                   tools:showIn="@layout/activity_real">
+
+        <FrameLayout
+            android:id="@+id/frame"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="4dp"
+            app:layout_aspectRatio="100%"
+            app:layout_widthPercent="80%">
+
+            <View
+                android:id="@+id/question_overlay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/black"
+                android:padding="24dp"/>
+
+            <TextView
+                android:id="@+id/question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="24dp"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                android:textColor="@color/white87"
+                android:textSize="18sp"
+                android:visibility="invisible"
+                app:font="@{@string/FontSubHeadline}"
+                tools:text="What's the perfect takeaway food for a date night in?"
+                tools:visibility="visible"/>
+        </FrameLayout>
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/button_mute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_sound_on"
+            android:stateListAnimator="@animator/button_elevation"
+            app:backgroundTint="@color/red"
+            app:fabSize="mini"
+            app:layout_marginRightPercent="5%"/>
+
+        <com.showreal.app.RealOverlayView
+            android:id="@+id/overlay"
+            android:layout_width="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            app:layout_aspectRatio="62%"
+            app:layout_widthPercent="100%">
+
+
+            <com.showreal.app.playpause.PlayPauseView
+                android:id="@+id/button_play"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:stateListAnimator="@animator/button_elevation"
+                android:visibility="gone"
+                tools:visibility="visible"
+                />
+
+        </com.showreal.app.RealOverlayView>
+
+    </android.support.percent.PercentRelativeLayout>
+</layout>

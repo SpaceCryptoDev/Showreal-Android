@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="viewModel"
+            type="com.showreal.app.features.reviews.preferences.SearchLocationViewModel"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/toolbar_layout"
+            layout="@layout/toolbar_buttons"/>
+
+        <FrameLayout
+            android:id="@+id/map_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar_layout"/>
+
+        <ImageView
+            android:id="@+id/circle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:paddingTop="?attr/actionBarSize"
+            android:src="@drawable/map_circle"/>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar_layout"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="1dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical">
+
+                <RadioGroup
+                    android:id="@+id/location_options"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checkedButton="@{viewModel.checkedType}"
+                    android:orientation="horizontal"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:paddingTop="8dp"
+                    app:onCheckedChangeListener="@{viewModel.onTypeChanged}"
+                    tools:checkedButton="@id/option_home">
+
+                    <RadioButton
+                        android:id="@+id/option_home"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/checkable_segment_long_left"
+                        android:button="@null"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:gravity="center"
+                        android:padding="6dp"
+                        android:text="@string/location_home"
+                        android:textAllCaps="false"
+                        android:textAppearance="@style/TextAppearance.ShowReal.Button"
+                        android:textColor="@color/checkable_text_color"/>
+
+                    <RadioButton
+                        android:id="@+id/option_search"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/checkable_segment_middle"
+                        android:button="@null"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:gravity="center"
+                        android:padding="6dp"
+                        android:text="@string/location_search"
+                        android:textAllCaps="false"
+                        android:textAppearance="@style/TextAppearance.ShowReal.Button"
+                        android:textColor="@color/checkable_text_color"/>
+
+                    <RadioButton
+                        android:id="@+id/option_follow"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/checkable_segment_long_right"
+                        android:button="@null"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:gravity="center"
+                        android:padding="6dp"
+                        android:text="@string/location_follow"
+                        android:textAllCaps="false"
+                        android:textAppearance="@style/TextAppearance.ShowReal.Button"
+                        android:textColor="@color/checkable_text_color"/>
+
+                </RadioGroup>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel == null ? View.GONE : viewModel.searchVisibility}"
+                    tools:visibility="visible">
+
+                    <ImageButton
+                        android:id="@+id/button_location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="4dp"
+                        android:background="@null"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:onClick="@{viewModel::onLocation}"
+                        android:padding="8dp"
+                        android:src="@drawable/map_location"/>
+
+                    <EditText
+                        android:id="@+id/search"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/button_search"
+                        android:layout_toRightOf="@id/button_location"
+                        android:background="@drawable/outline_red"
+                        android:hint="@string/field_location_search"
+                        android:imeOptions="actionSearch"
+                        android:inputType="textCapWords"
+                        android:lines="1"
+                        android:onTextChanged="@{viewModel::onSearchChanged}"
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="28dp"
+                        android:paddingTop="8dp"
+                        android:text="@{viewModel.searchText}"
+                        android:textAppearance="@style/TextAppearance.ShowReal.Body1"
+                        app:font="@{@string/FontBody1}"/>
+
+                    <ImageButton
+                        android:id="@+id/button_search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="4dp"
+                        android:background="@null"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:onClick="@{viewModel::onSearch}"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_search"/>
+
+                    <ProgressBar
+                        android:id="@+id/progress_bar"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:visibility="gone"
+                        android:layout_gravity="center_vertical"
+                        android:background="@null"
+                        android:layout_margin="4dp"
+                        android:padding="4dp"/>
+
+                    <ImageButton
+                        android:id="@+id/button_clear"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_alignRight="@id/search"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="8dp"
+                        android:background="@null"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:onClick="@{viewModel::onClear}"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_clear_grey_24dp"/>
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/red"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="12dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="16dp"
+                    android:paddingTop="12dp">
+
+                    <SeekBar
+                        android:id="@+id/distance_seeker"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:max="100"
+                        app:onSeekBarChangeListener="@{viewModel.onRadiusChanged}"/>
+
+                    <TextView
+                        android:id="@+id/distance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.distance}"
+                        android:textAppearance="@style/TextAppearance.ShowReal.Body1"
+                        android:textColor="@color/red"
+                        app:font="@{@string/FontBody1}"
+                        tools:text="+50 miles"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+    </RelativeLayout>
+
+</layout>

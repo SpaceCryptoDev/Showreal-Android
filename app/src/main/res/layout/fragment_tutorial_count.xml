@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="8dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/intro_count_background"
+            app:layout_marginBottomPercent="10%"/>
+
+        <io.netopen.hotbitmapgg.library.view.RingProgressBar
+            android:id="@+id/progress"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerHorizontal="true"
+            app:layout_aspectRatio="100%"
+            app:layout_marginTopPercent="15%"
+            app:layout_widthPercent="34%"
+            app:max="100"
+            app:ringColor="@android:color/transparent"
+            app:ringProgressColor="@color/colorPrimary"
+            app:ringWidth="3dp"
+            app:style="STROKE"
+            app:textIsShow="false"/>
+
+        <LinearLayout
+            android:id="@+id/count_frame"
+            android:layout_alignBottom="@id/progress"
+            android:layout_alignLeft="@id/progress"
+            android:layout_alignRight="@id/progress"
+            android:layout_alignTop="@id/progress"
+            android:layout_margin="8dp"
+            android:background="@drawable/circle_red_solid"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="invisible"
+            tools:visibility="visible">
+
+            <TextView
+                android:id="@+id/count"
+                style="@style/TextAppearance.ShowReal.Headline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:textColor="@android:color/white"
+                android:textSize="34sp"
+                app:font="@{@string/FontBody2}"
+                tools:text="220"/>
+
+            <TextView
+                android:id="@+id/users"
+                style="@style/TextAppearance.ShowReal.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="users"
+                android:textColor="@color/white87"
+                android:visibility="invisible"
+                app:font="@{@string/FontBody1}"
+                tools:visibility="visible"/>
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/text"
+            style="@style/TextAppearance.ShowReal.Title"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/progress"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="32dp"
+            android:gravity="center_horizontal"
+            android:lineSpacingMultiplier="1.4"
+            android:text="@string/onboarding_text_local"
+            android:visibility="invisible"
+            app:font="@{@string/FontBody1}"
+            app:layout_widthPercent="38%"
+            tools:visibility="visible"/>
+
+        <TextView
+            android:id="@+id/showreal"
+            style="@style/TextAppearance.ShowReal.Headline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:text="ShowReal"
+            android:textColor="@color/colorPrimaryDark"
+            android:visibility="invisible"
+            app:font="@{@string/FontHeadline}"
+            tools:visibility="visible"/>
+
+    </android.support.percent.PercentRelativeLayout>
+
+</layout>

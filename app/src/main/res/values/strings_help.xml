@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tutorial_title_chance">Not Convinced?</string>
+    <string name="tutorial_msg_chance">Give the user a 2nd chance to appear in your Real Review list by suggesting that they update their video.  Don\'t worry, users can only see the total number of 2nd Chances they have been given on their profile, not who they came from.</string>
+    <string name="tutorial_title_keep">Say Yes!</string>
+    <string name="tutoral_title">Review your matches!</string>
+    <string name="tutoral_title2">Find your range..</string>
+    <string name="tutoral_msg2">Change your search criteria by pressing the icon!</string>
+    <string name="tutoral_msg">Well done, you\'re all set up. We\'ve already found some matches for you. The buttons below interact with each match..</string>
+    <string name="tutorial_msg_keep">Tap Keep if you would like the opportunity to be matched with this user and they will be added to your Real Potential list until they have reviewed your profile.</string>
+    <string name="tutorial_title_cut">Not the one for me!</string>
+    <string name="tutorial_msg_cut">Click Cut if it\'s not a match for you.  This user will not appear in your Real Review list anymore.</string>
+    <string name="tutorial_title_edit">Edit Button</string>
+    <string name="tutorial_msg_edit">This button will bring you to the edit page, where you can update your ShowReal and profile information.</string>
+    <string name="tutorial_title_feedback">Feedback</string>
+    <string name="tutorial_msg_feedback">See how many users have viewed your video and how many 2nd Chances you\’ve been given. Remember when you re-do your ShowReal, users that gave you a 2nd Chance will see your new ShowReal when it\'s published.</string>
+</resources>

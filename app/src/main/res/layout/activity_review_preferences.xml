@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.showreal.app.features.reviews.preferences.PreferencesViewModel"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/coordinator"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/toolbar_layout"
+                    layout="@layout/toolbar_buttons"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="16dp"
+                    android:text="@string/preferences_hint"
+                    android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                    app:font="@{@string/FontSubHeadline}"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="32dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/field_gender"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-8dp"
+                        android:layout_weight="0.25"
+                        android:text="@string/field_gender"
+                        android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                        app:font="@{@string/FontTitle}"/>
+
+                    <RadioGroup
+                        android:id="@+id/gender"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7"
+                        android:orientation="horizontal"
+                        app:onCheckedChangeListener="@{viewModel.onGenderChanged}">
+
+                        <RadioButton
+                            android:id="@+id/gender_male"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:button="@null"
+                            android:drawablePadding="4dp"
+                            android:drawableTop="@drawable/checkable_male"
+                            android:foreground="?attr/selectableItemBackgroundBorderless"
+                            android:gravity="center_horizontal"
+                            android:padding="8dp"
+                            android:text="@string/gender_male"
+                            android:textAppearance="@style/TextAppearance.ShowReal.Body2"
+                            android:textColor="@color/checkable_text_color_black"
+                            app:font="@{@string/FontBody2}"/>
+
+
+                        <RadioButton
+                            android:id="@+id/gender_female"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:button="@null"
+                            android:drawablePadding="4dp"
+                            android:drawableTop="@drawable/checkable_female"
+                            android:foreground="?attr/selectableItemBackgroundBorderless"
+                            android:gravity="center_horizontal"
+                            android:padding="8dp"
+                            android:text="@string/gender_female"
+                            android:textAppearance="@style/TextAppearance.ShowReal.Body2"
+                            android:textColor="@color/checkable_text_color_black"
+                            app:font="@{@string/FontBody2}"/>
+
+                        <RadioButton
+                            android:id="@+id/gender_both"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:button="@null"
+                            android:drawablePadding="4dp"
+                            android:drawableTop="@drawable/checkable_both"
+                            android:foreground="?attr/selectableItemBackgroundBorderless"
+                            android:gravity="center_horizontal"
+                            android:padding="8dp"
+                            android:text="@string/gender_both"
+                            android:textAppearance="@style/TextAppearance.ShowReal.Body2"
+                            android:textColor="@color/checkable_text_color_black"
+                            app:font="@{@string/FontBody2}"/>
+
+                    </RadioGroup>
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="16dp"
+                    android:background="@color/black20"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="32dp"
+                    android:gravity="center_vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.32"
+                        android:text="@string/field_age_range"
+                        android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                        app:font="@{@string/FontTitle}"/>
+
+                    <TextView
+                        android:id="@+id/field_height"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.68"
+                        android:text="@{viewModel.ageRange}"
+                        android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                        app:font="@{@string/FontBody2}"
+                        tools:text="20 - 35"/>
+
+                </LinearLayout>
+
+                <io.apptik.widget.MultiSlider
+                    android:id="@+id/range_slider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="32dp"
+                    android:layout_marginTop="16dp"
+                    android:thumb="@drawable/range_thumb"
+                    app:drawThumbsApart="true"
+                    app:onThumbValueChangeListener="@{viewModel.rangeListener}"
+                    app:range1="@drawable/multislider_scrubber_track_holo_light"
+                    app:rangeColor="@color/colorAccent"
+                    app:scaleMax="75"
+                    app:scaleMin="18"
+                    app:scaleStep="1"
+                    app:stepsThumbsApart="2"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/black20"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:onClick="@{viewModel::onLocation}"
+                    android:paddingBottom="16dp"
+                    android:paddingLeft="32dp"
+                    android:paddingRight="32dp"
+                    android:paddingTop="16dp"
+                    android:weightSum="1.0">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.35"
+                        android:text="@string/field_location_reviews"
+                        android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                        app:font="@{@string/FontTitle}"/>
+
+                    <TextView
+                        android:id="@+id/field_location"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.62"
+                        android:gravity="bottom"
+                        android:drawableLeft="@{viewModel.locationDrawable}"
+                        tools:drawableLeft="@drawable/ic_home"
+                        android:drawablePadding="8dp"
+                        android:drawableRight="@drawable/ic_keyboard_arrow_right_gray_20dp"
+                        android:text="@{viewModel.location}"
+                        android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                        app:font="@{@string/FontBody2}"
+                        tools:text="Addington"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@color/black20"/>
+
+
+            </LinearLayout>
+        </android.support.design.widget.CoordinatorLayout>
+
+        <include
+            android:id="@+id/loading"
+            layout="@layout/loading_view"
+            android:visibility="gone"/>
+    </FrameLayout>
+
+</layout>

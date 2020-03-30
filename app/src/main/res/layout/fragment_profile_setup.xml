@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.showreal.app.features.onboarding.signup.SignUpProfileViewModel"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/coordinator"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <android.support.design.widget.AppBarLayout
+                        android:id="@+id/app_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/gradient_red_bottom">
+
+                        <com.showreal.app.SRToolbar
+                            android:id="@+id/toolbar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@+id/title"
+                            android:theme="@style/Widget.ShowReal.Toolbar"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="?attr/actionBarSize"/>
+
+                    </android.support.design.widget.AppBarLayout>
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:elevation="4dp"
+                        android:gravity="center"
+                        android:minHeight="?attr/actionBarSize"
+                        android:textAppearance="@style/TextAppearance.ShowReal.Widget.Toolbar.Title"
+                        app:font="@{@string/FontHeadline}"
+                        tools:text="Your Profile"/>
+
+                    <com.github.siyamed.shapeimageview.HexagonImageView
+                        android:id="@+id/profile_image"
+                        android:layout_width="88dp"
+                        android:layout_height="88dp"
+                        android:layout_below="@id/app_bar"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="-44dp"
+                        android:elevation="6dp"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:onClick="@{viewModel::onImage}"
+                        android:src="@drawable/profile_pic_placeholder"
+                        app:siBorderColor="@color/red"
+                        app:siBorderWidth="2dp"/>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="32dp"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center_vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/field_gender"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-8dp"
+                        android:layout_weight="0.25"
+                        android:text="@string/field_gender"
+                        android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                        app:font="@{@string/FontTitle}"/>
+
+                    <RadioGroup
+                        android:id="@+id/gender"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7"
+                        android:orientation="horizontal"
+                        app:onCheckedChangeListener="@{viewModel.onGenderChanged}">
+
+                        <RadioButton
+                            android:id="@+id/gender_male"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:button="@null"
+                            android:drawablePadding="4dp"
+                            android:drawableTop="@drawable/checkable_male"
+                            android:foreground="?attr/selectableItemBackgroundBorderless"
+                            android:gravity="center_horizontal"
+                            android:padding="8dp"
+                            android:text="@string/gender_male"
+                            android:textAppearance="@style/TextAppearance.ShowReal.Body2"
+                            android:textColor="@color/checkable_text_color_black"
+                            app:font="@{@string/FontBody2}"/>
+
+
+                        <RadioButton
+                            android:id="@+id/gender_female"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:button="@null"
+                            android:drawablePadding="4dp"
+                            android:drawableTop="@drawable/checkable_female"
+                            android:foreground="?attr/selectableItemBackgroundBorderless"
+                            android:gravity="center_horizontal"
+                            android:padding="8dp"
+                            android:text="@string/gender_female"
+                            android:textAppearance="@style/TextAppearance.ShowReal.Body2"
+                            android:textColor="@color/checkable_text_color_black"
+                            app:font="@{@string/FontBody2}"/>
+
+                    </RadioGroup>
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@color/black20"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="32dp"
+                    android:gravity="center_vertical"
+                    android:weightSum="1"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.35"
+                        android:text="@string/field_height"
+                        android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                        app:font="@{@string/FontTitle}"/>
+
+                    <TextView
+                        android:id="@+id/field_height"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.22"
+                        android:text="@{viewModel.heightString}"
+                        android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                        app:font="@{@string/FontBody2}"
+                        tools:text="180cm"/>
+
+                    <RadioGroup
+                        android:id="@+id/height_unit"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.38"
+                        android:checkedButton="@{viewModel.checkedUnits}"
+                        android:gravity="right"
+                        android:orientation="horizontal"
+                        app:onCheckedChangeListener="@{viewModel.onUnitsChanged}">
+
+                        <RadioButton
+                            android:id="@+id/height_cm"
+                            android:layout_width="48sp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/checkable_segment_left"
+                            android:button="@null"
+                            android:foreground="?attr/selectableItemBackgroundBorderless"
+                            android:gravity="center"
+                            android:paddingBottom="6dp"
+                            android:paddingLeft="4dp"
+                            android:paddingRight="4dp"
+                            android:paddingTop="6dp"
+                            android:text="@string/height_cm"
+                            android:textAllCaps="false"
+                            android:textAppearance="@style/TextAppearance.ShowReal.Button"
+                            android:textColor="@color/checkable_text_color"
+                            app:font="@{@string/FontButton}"/>
+
+                        <RadioButton
+                            android:id="@+id/height_feet"
+                            android:layout_width="48sp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/checkable_segment_right"
+                            android:button="@null"
+                            android:foreground="?attr/selectableItemBackgroundBorderless"
+                            android:gravity="center"
+                            android:paddingBottom="6dp"
+                            android:paddingLeft="4dp"
+                            android:paddingRight="4dp"
+                            android:paddingTop="6dp"
+                            android:text="@string/height_feet"
+                            android:textAllCaps="false"
+                            android:textAppearance="@style/TextAppearance.ShowReal.Button"
+                            android:textColor="@color/checkable_text_color"
+                            app:font="@{@string/FontButton}"/>
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/height_slider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:layout_marginTop="16dp"
+                    android:max="244"
+                    android:visibility="gone"
+                    app:onSeekBarChangeListener="@{viewModel.onHeightChanged}"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:visibility="gone"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/black20"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:onClick="@{viewModel::onLocation}"
+                    android:paddingBottom="32dp"
+                    android:paddingLeft="32dp"
+                    android:paddingRight="32dp"
+                    android:paddingTop="32dp"
+                    android:weightSum="1.0">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.35"
+                        android:gravity="center_vertical"
+                        android:text="@string/title_location"
+                        android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                        app:font="@{@string/FontTitle}"/>
+
+                    <TextView
+                        android:id="@+id/field_location"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.62"
+                        android:drawableRight="@drawable/ic_keyboard_arrow_right_gray_20dp"
+                        android:gravity="center_vertical"
+                        android:text="@{viewModel.location}"
+                        android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                        app:font="@{@string/FontBody2}"
+                        tools:text="Addington"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@color/black20"/>
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="16dp"
+                    android:background="@android:color/transparent"
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:onClick="@{viewModel::onArrow}"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_arrow_forward_red_24dp"/>
+
+            </LinearLayout>
+        </android.support.design.widget.CoordinatorLayout>
+
+        <include
+            android:id="@+id/loading"
+            layout="@layout/loading_view"
+            android:visibility="gone"/>
+    </FrameLayout>
+</layout>

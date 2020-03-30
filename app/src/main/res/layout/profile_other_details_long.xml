@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="viewModel"
+            type="com.showreal.app.features.reviews.ReviewViewModel"/>
+
+        <variable
+            name="profileViewModel"
+            type="com.showreal.app.features.profile.other.OtherProfileViewModel"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/status_bar_light"
+        android:paddingBottom="8dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:paddingTop="8dp"
+        tools:showIn="@layout/item_real_profile">
+
+        <TextView
+            android:id="@+id/gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/space"
+            android:drawablePadding="4dp"
+            android:drawableTop="@{profileViewModel.genderIcon}"
+            android:text="@{profileViewModel.gender}"
+            android:textAppearance="@style/TextAppearance.ShowReal.Body1"
+            android:textColor="@color/black87"
+            app:font="@{@string/FontCaption}"
+            tools:drawableTop="@drawable/ic_male"
+            tools:text="Male"/>
+
+        <android.support.v4.widget.Space
+            android:id="@+id/space"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            />
+
+        <TextView
+            android:id="@+id/height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/space"
+            android:layout_weight="1"
+            android:drawablePadding="4dp"
+            android:drawableTop="@drawable/ic_height"
+            android:gravity="center"
+            android:text="@{profileViewModel.height}"
+            android:textAppearance="@style/TextAppearance.ShowReal.Body1"
+            android:textColor="@color/black87"
+            app:font="@{@string/FontCaption}"
+            tools:text="5ft 10in"/>
+
+        <TextView
+            android:id="@+id/city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/gender"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="4dp"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_home_16dp"
+            android:drawablePadding="4dp"
+            android:gravity="center"
+            android:text="@{viewModel.city}"
+            android:textAppearance="@style/TextAppearance.ShowReal.Body1"
+            android:textColor="@color/black87"
+            app:font="@{@string/FontCaption}"
+            tools:text="London"/>
+    </RelativeLayout>
+</layout>

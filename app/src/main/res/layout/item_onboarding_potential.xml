@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/onboarding_potential_1"
+            app:layout_aspectRatio="100%"
+            app:layout_marginLeftPercent="3%"
+            app:layout_marginRightPercent="3%"
+            app:layout_widthPercent="25%"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/image"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.ShowReal.Body1"
+                android:textColor="@color/red"
+                android:textSize="13dp"
+                app:font="@{@string/FontBody2}"
+                tools:text="Paul, 27"/>
+
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/onboarding_location"
+                android:drawablePadding="4dp"
+                android:gravity="center_vertical"
+                android:text="London"
+                android:textAppearance="@style/TextAppearance.ShowReal.Caption"
+                android:textColor="@color/red"
+                android:textSize="11dp"
+                app:font="@{@string/FontBody2}"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/image"
+            android:layout_marginTop="-1dp"
+            android:background="@color/red"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"/>
+
+    </android.support.percent.PercentRelativeLayout>
+
+</layout>

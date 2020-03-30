@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.showreal.app.SRToolbar
+                android:id="@+id/toolbar"
+                android:theme="@style/Widget.ShowReal.Toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/title"
+                android:layout_alignTop="@+id/title"
+                android:background="@android:color/transparent"/>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:minHeight="?attr/actionBarSize"
+                android:textAppearance="@style/TextAppearance.ShowReal.Widget.Toolbar.Title"
+                app:font="@{@string/FontHeadline}"
+                tools:text="ShowReal"/>
+        </RelativeLayout>
+
+        <com.showreal.app.cookiecutter.CookieCutterImageView
+            android:id="@+id/crop"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+</layout>

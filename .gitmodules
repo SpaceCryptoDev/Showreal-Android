@@ -1,0 +1,6 @@
+[submodule "libraries/viewpagerindicator"]
+	path = libraries/viewpagerindicator
+	url = git@github.com:thedistance/ViewPagerIndicator.git
+[submodule "libraries/showcase"]
+	path = libraries/showcase
+	url = git@github.com:thedistance/TutoShowcase.git

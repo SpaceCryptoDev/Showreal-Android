@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="FontHeadline">Pacifico</string>
+    <string name="FontSubHeadline">Lato-Regular</string>
+    <string name="FontTitle">Lato-Light</string>
+    <string name="FontBody1">Lato-Light</string>
+    <string name="FontBody2">Lato-Regular</string>
+    <string name="FontCaption">Lato-Regular</string>
+    <string name="FontButton">Lato-Light</string>
+    <string name="FontButtonBold">Lato-Black</string>
+    <string name="FontBold">Lato-Bold</string>
+</resources>

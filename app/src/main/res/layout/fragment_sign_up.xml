@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.showreal.app.features.onboarding.signup.SignUpViewModel" />
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="16dp"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
+                android:paddingTop="16dp">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/title_sign_up"
+                    android:textAppearance="@style/TextAppearance.ShowReal.Title" />
+
+                <Button
+                    android:id="@+id/button_facebook"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_outline_facebook"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:onClick="@{viewModel::onFacebook}"
+                    android:text="@string/button_facebook"
+                    android:textAppearance="@style/TextAppearance.ShowReal.Button"
+                    android:textColor="@color/colorPrimary"
+                    app:font="@{@string/FontButton}" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/label_or"
+                    android:textAppearance="@style/TextAppearance.ShowReal.Title" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/first_name_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:font="@{@string/FontBody1}">
+
+                        <EditText
+                            android:id="@+id/first_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="@string/field_first_name"
+                            android:inputType="textCapWords|textPersonName"
+                            android:nextFocusDown="@+id/last_name"
+                            android:onTextChanged="@{viewModel::onFirstNameChanged}"
+                            android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                            app:font="@{@string/FontBody1}" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+
+                    <View xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@color/black20" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/last_name_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:font="@{@string/FontBody1}">
+
+                        <EditText
+                            android:id="@+id/last_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="@string/field_last_name"
+                            android:inputType="textCapWords|textPersonName"
+                            android:onTextChanged="@{viewModel::onLastNameChanged}"
+                            android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                            app:font="@{@string/FontBody1}" />
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/dob_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    app:font="@{@string/FontBody1}">
+
+                    <EditText
+                        android:id="@+id/date_of_birth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/ic_keyboard_arrow_right_gray_20dp"
+                        android:focusable="false"
+                        android:gravity="center_vertical"
+                        android:hint="@string/field_dob"
+                        android:onClick="@{viewModel::onDobClick}"
+                        android:text="@{viewModel.dateOfBirth}"
+                        android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                        app:font="@{@string/FontBody1}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/email_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    app:font="@{@string/FontBody1}">
+
+                    <EditText
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/field_email"
+                        android:inputType="textEmailAddress"
+                        android:onTextChanged="@{viewModel::onEmailChanged}"
+                        android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                        app:font="@{@string/FontBody1}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/password_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:font="@{@string/FontBody1}"
+                    app:passwordToggleEnabled="true"
+                    app:passwordToggleTint="@color/red">
+
+                    <EditText
+                        android:id="@+id/password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/field_password"
+                        android:inputType="textPassword"
+                        android:onTextChanged="@{viewModel::onPasswordChanged}"
+                        android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                        app:font="@{@string/FontBody1}"
+                        tools:text="wfgkjrng" />
+                </android.support.design.widget.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:clipToPadding="false"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp">
+
+                    <Button
+                        android:id="@+id/button_sign_up"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/button_sign_up"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:onClick="@{viewModel::onSignUp}"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:text="@string/button_sign_up"
+                        android:textAppearance="@style/TextAppearance.ShowReal.Button"
+                        android:textColor="@color/red"
+                        app:font="@{@string/FontButton}" />
+
+                    <TextView
+                        android:id="@+id/or"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="12dp"
+                        android:text="or"
+                        android:textAppearance="@style/TextAppearance.ShowReal.Body1"
+                        android:visibility="gone"
+                        app:font="@{@string/FontBody1}" />
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

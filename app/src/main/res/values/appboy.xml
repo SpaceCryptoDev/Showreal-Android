@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="com_appboy_api_key">39859fa6-5685-4b2d-9c49-cb7e399a34a1</string>
+    <bool name="com_appboy_push_gcm_messaging_registration_enabled">false</bool>
+    <drawable name="com_appboy_push_small_notification_icon">@drawable/ic_notification</drawable>
+    <drawable name="com_appboy_push_large_notification_icon">@drawable/showreal_profile</drawable>
+    <integer name="com_appboy_default_notification_accent_color">0xc73030</integer>
+    <bool name="com_appboy_handle_push_deep_links_automatically">true</bool>
+</resources>

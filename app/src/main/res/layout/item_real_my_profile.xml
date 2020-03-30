@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="viewModel"
+            type="com.showreal.app.features.profile.ProfileReelViewModel"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.percent.PercentFrameLayout
+                android:id="@+id/frame"
+                android:layout_below="@id/profile_details"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="18dp"
+                app:layout_aspectRatio="100%"
+                app:layout_widthPercent="79.2%">
+
+                <ProgressBar
+                    android:id="@+id/download_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="gone"/>
+
+                <ImageView
+                    android:id="@+id/question_overlay"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/grey_light"/>
+
+                <ImageView
+                    android:id="@+id/sponsor_image"
+                    app:layout_widthPercent="20%"
+                    app:layout_aspectRatio="100%"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:layout_marginBottom="16dp"
+                    android:alpha="0"/>
+
+                <TextView
+                    android:id="@+id/question"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="24dp"
+                    android:alpha="0"
+                    android:gravity="center"
+                    android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                    android:textColor="@color/white87"
+                    android:textSize="18sp"
+                    app:font="@{@string/FontSubHeadline}"
+                    tools:text="What's the perfect takeaway food for a date night in?"
+                    tools:visibility="visible"/>
+
+                <com.showreal.app.playpause.PlayPauseView
+                    android:id="@+id/button_play"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:stateListAnimator="@animator/button_elevation"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    />
+            </android.support.percent.PercentFrameLayout>
+
+
+            <com.showreal.app.RealOverlayView
+                android:id="@+id/overlay"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_alignBottom="@id/frame"
+                android:layout_alignParentTop="true"
+                >
+
+                <ImageView
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
+                    android:scaleType="fitEnd"
+                    android:src="@{viewModel.shapeOne}"
+                    app:layout_heightPercent="50%"
+                    app:layout_marginBottomPercent="25%"
+                    app:layout_marginRightPercent="50%"
+                    app:layout_widthPercent="40%"
+                    tools:src="@drawable/pattern_1"/>
+
+
+                <ImageView
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:scaleType="fitEnd"
+                    android:src="@{viewModel.shapeTwo}"
+                    app:layout_heightPercent="50%"
+                    app:layout_marginBottomPercent="25%"
+                    app:layout_marginLeftPercent="50%"
+                    app:layout_widthPercent="40%"
+                    tools:src="@drawable/pattern_2"/>
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="fitStart"
+                    android:src="@{viewModel.shapeThree}"
+                    app:layout_heightPercent="50%"
+                    app:layout_marginTopPercent="50%"
+                    app:layout_widthPercent="40%"
+                    tools:src="@drawable/pattern_3"/>
+
+            </com.showreal.app.RealOverlayView>
+
+            <io.netopen.hotbitmapgg.library.view.RingProgressBar
+                android:id="@+id/progress"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_centerHorizontal="true"
+                app:max="100"
+                app:ringColor="@android:color/transparent"
+                app:ringProgressColor="@color/colorPrimary"
+                app:ringWidth="6dp"
+                app:style="STROKE"
+                app:textIsShow="false"/>
+
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/button_mute"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@id/frame"
+                android:layout_marginRight="8dp"
+                android:src="@drawable/ic_sound_on"
+                android:stateListAnimator="@animator/button_elevation"
+                app:backgroundTint="@color/red"
+                app:fabSize="mini"/>
+
+        </android.support.percent.PercentRelativeLayout>
+
+    </FrameLayout>
+</layout>

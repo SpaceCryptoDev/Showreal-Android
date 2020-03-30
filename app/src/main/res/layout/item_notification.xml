@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.showreal.app.features.notifications.NotificationViewModel"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_dark"
+        android:minHeight="?attr/listPreferredItemHeight">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="24dp"
+            android:drawablePadding="4dp"
+            android:drawableTop="@drawable/ic_delete_white"
+            android:text="@string/button_delete"
+            android:textAppearance="@style/TextAppearance.ShowReal.Body2"
+            android:textColor="@android:color/white"/>
+
+        <com.showreal.app.SRRelativeLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:background="@android:color/white"
+            android:clipToPadding="false"
+            android:foreground="?attr/selectableItemBackground"
+            android:minHeight="?attr/listPreferredItemHeight"
+            android:onClick="@{viewModel::onClick}"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <ImageView
+                android:id="@+id/notification_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="26dp"
+                android:imageResource="@{viewModel.iconResource}"
+                tools:src="@drawable/new_match"
+                android:visibility="@{viewModel.iconVisibility}"/>
+
+            <com.github.siyamed.shapeimageview.HexagonImageView
+                android:id="@+id/photo"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_toRightOf="@id/notification_icon"
+                android:adjustViewBounds="false"
+                android:src="@drawable/ic_event"
+                app:notificationImage="@{viewModel.image}"
+                app:siBorderWidth="0dp"/>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="16dp"
+                android:layout_toLeftOf="@+id/button_calender"
+                android:layout_toRightOf="@id/photo"
+                android:text="@{viewModel.title}"
+                android:textAppearance="@style/TextAppearance.ShowReal.SubHead"
+                app:font="@{@string/FontSubHeadline}"
+                tools:text="Some Event"/>
+
+
+            <ImageView
+                android:id="@+id/button_calender"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="16dp"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:onClick="@{viewModel::onCalendar}"
+                android:scaleType="center"
+                android:src="@drawable/ic_event_red_24dp"
+                android:visibility="@{viewModel.calendarVisibility}"/>
+
+            <TextView
+                android:id="@+id/summary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title"
+                android:layout_marginBottom="8dp"
+                android:layout_toLeftOf="@id/button_calender"
+                android:layout_toRightOf="@id/photo"
+                android:text="@{viewModel.summary}"
+                android:textAppearance="@style/TextAppearance.ShowReal.Body1"
+                app:font="@{@string/FontBody1}"
+                tools:text="Your house, but a bit longer, like this. See you there"/>
+
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/summary"
+                android:layout_marginTop="-8dp"
+                android:paddingTop="6dp"
+                android:text="@{viewModel.date}"
+                android:textAppearance="@style/TextAppearance.ShowReal.Caption"
+                android:textColor="@color/red"
+                android:visibility="@{viewModel.calendarVisibility}"
+                app:font="@{@string/FontCaption}"
+                tools:text="Today"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="@{viewModel.handleVisibility}"
+                android:src="@drawable/list_handle"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+
+        </com.showreal.app.SRRelativeLayout>
+
+        <View
+            android:layout_width="40dp"
+            android:layout_height="1dp"
+            android:layout_gravity="bottom"
+            android:background="@android:color/white"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="40dp"
+            android:background="@color/grey_divider"/>
+    </FrameLayout>
+</layout>

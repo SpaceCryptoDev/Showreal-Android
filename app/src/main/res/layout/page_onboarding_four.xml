@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/image"
+            app:layout_aspectRatio="176.2%"
+            app:layout_widthPercent="100%">
+
+            <ImageView
+                android:id="@+id/chat"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/selector_onboarding_chat"
+                app:layout_widthPercent="28.8%"
+                app:layout_marginLeftPercent="35.87%"
+                app:layout_marginTopPercent="27.4%"/>
+
+            <ImageView
+                android:id="@+id/message_one"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/chat"
+                android:adjustViewBounds="true"
+                android:src="@drawable/onboarding_message_1"
+                android:visibility="invisible"
+                app:layout_marginBottomPercent="2%"
+                app:layout_marginRightPercent="0.5%"
+                app:layout_marginTopPercent="22.4%"
+                app:layout_widthPercent="24%"
+                tools:visibility="visible"/>
+
+            <ImageView
+                android:id="@+id/message_two"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/chat"
+                android:layout_below="@id/message_one"
+                android:adjustViewBounds="true"
+                android:src="@drawable/onboarding_message_2"
+                android:visibility="invisible"
+                app:layout_marginBottomPercent="2%"
+                app:layout_marginLeftPercent="0.5%"
+                app:layout_widthPercent="16%"
+                tools:visibility="visible"/>
+
+            <ImageView
+                android:id="@+id/message_three"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/chat"
+                android:layout_below="@id/message_two"
+                android:adjustViewBounds="true"
+                android:src="@drawable/onboarding_message_3"
+                android:visibility="invisible"
+                app:layout_marginBottomPercent="2%"
+                app:layout_marginLeftPercent="0.5%"
+                app:layout_widthPercent="24.8%"
+                tools:visibility="visible"/>
+
+            <ImageView
+                android:id="@+id/message_four"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/chat"
+                android:layout_below="@id/message_three"
+                android:adjustViewBounds="true"
+                android:src="@drawable/onboarding_message_4"
+                android:visibility="invisible"
+                app:layout_marginBottomPercent="2%"
+                app:layout_marginRightPercent="0.5%"
+                app:layout_widthPercent="24.8%"
+                tools:visibility="visible"/>
+
+            <ImageView
+                android:id="@+id/message_five"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/chat"
+                android:layout_below="@id/message_four"
+                android:adjustViewBounds="true"
+                android:src="@drawable/onboarding_message_5"
+                android:visibility="invisible"
+                app:layout_marginLeftPercent="0.5%"
+                app:layout_widthPercent="7.2%"
+                tools:visibility="visible"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/onboarding_four"/>
+
+        </android.support.percent.PercentRelativeLayout>
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/TextAppearance.ShowReal.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_horizontal"
+            android:text="@string/onboarding_title_4"
+            android:textColor="@color/colorPrimaryDark"
+            app:font="@{@string/FontHeadline}"
+            app:layout_marginTopPercent="10%"/>
+
+        <TextView
+            android:id="@+id/text"
+            style="@style/TextAppearance.ShowReal.Body1"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:lineSpacingMultiplier="1.4"
+            android:text="@string/onboarding_text_4"
+            app:font="@{@string/FontBody1}"
+            app:layout_widthPercent="64%"/>
+
+    </android.support.percent.PercentRelativeLayout>
+
+</layout>
